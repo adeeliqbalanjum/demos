@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V2 prototype · be there by three</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-mood="desert">
+
+<!-- loader: once per session -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__sun"></div>
+  <img class="loader__logo" src="img/logo-white.png" alt="">
+  <p class="loader__line"><span>Your day in Dubai</span> <span>starts at</span> <span class="loader__time">3:00 PM</span></p>
+  <div class="loader__bar"><i></i></div>
+</div>
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top"><img src="img/logo-white.png" alt="Al Emirates Tours"></a>
+  <nav class="nav__links">
+    <a href="#day">Desert safari</a><a href="#worlds">Cruises</a><a href="#worlds">Tickets</a><a href="#worlds">Private tours</a><a href="#enquire">Visas</a>
+  </nav>
+  <div class="nav__right">
+    <span class="clock" id="clock"><i></i><b>3:00 PM</b> Dubai</span>
+    <a class="pill pill--wa" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.6 14.3c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.2Z"/></svg>WhatsApp</a>
+    <a class="pill pill--orange" href="#day">Book a tour</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- 1. HERO: the client's own dune video; the mood dock swaps the scene -->
+<section class="hero" id="hero">
+  <div class="hero__media">
+    <video class="hero__video scene is-on" data-mood="desert" src="video/safari-1280.mp4" poster="img/video-poster.jpg" autoplay muted loop playsinline></video>
+    <div class="scene scene--img" data-mood="sea" style="--img:url(img/dhow-cruise-marina.jpg)"></div>
+    <div class="scene scene--img" data-mood="sky" style="--img:url(img/Dubai-e1761907577327.jpg)"></div>
+    <div class="scene scene--img" data-mood="city" style="--img:url(img/Al-4-3.jpg)"></div>
+    <div class="hero__shade"></div>
+    <div class="grain"></div>
+  </div>
+
+  <div class="hero__copy">
+    <p class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span>Dubai · Abu Dhabi · Sharjah · Ras Al Khaimah · since 2021</p>
+    <h1 class="hero__h1" id="heroH1" data-split>Be in the dunes by four.</h1>
+    <p class="hero__sub" id="heroSub">Pickup from your hotel at 3:00 PM. Dune bashing by four, camel ride at sunset, BBQ dinner and three shows under the stars. Back by ten.</p>
+    <div class="hero__cta">
+      <a class="btn btn--orange magnetic" href="#day"><span>Start my evening</span><small>from AED 99</small></a>
+      <a class="btn btn--glass magnetic" href="https://wa.me/971581320909" target="_blank" rel="noopener">Ask on WhatsApp</a>
+    </div>
+    <ul class="proof" id="proof">
+      <li><b>5.0</b><span>57 Google reviews</span></li>
+      <li><b>10,000+</b><span>guests driven</span></li>
+      <li><b>Pay on arrival</b><span>no card to hold a seat</span></li>
+      <li><b>15 min</b><span>typical WhatsApp reply</span></li>
+    </ul>
+  </div>
+
+  <!-- the mood dock: where do you want to be? -->
+  <div class="dock" id="dock" role="tablist" aria-label="Where do you want to be">
+    <button class="dock__item is-on" data-mood="desert" data-h1="Be in the dunes by four." data-sub="Pickup from your hotel at 3:00 PM. Dune bashing by four, camel ride at sunset, BBQ dinner and three shows under the stars. Back by ten." style="--img:url(img/Dubai-Desert-Safari.jpg)"><span class="dock__img"></span><span class="dock__t">Desert</span><span class="dock__s">13 safaris · from AED 99</span></button>
+    <button class="dock__item" data-mood="sea" data-h1="Be on the water by seven." data-sub="A lit wooden dhow on the Marina or the Canal, buffet dinner, live music, the skyline sliding past. Two hours you will talk about." style="--img:url(img/dhow-cruise-marina.jpg)"><span class="dock__img"></span><span class="dock__t">Sea</span><span class="dock__s">8 cruises · from AED 59</span></button>
+    <button class="dock__item" data-mood="sky" data-h1="See all of it from 124 floors up." data-sub="Burj Khalifa At The Top, a 12 to 25 minute helicopter ride over the Palm, a sunrise balloon over the dunes. Tickets in your WhatsApp within minutes." style="--img:url(img/Dubai-e1761907577327.jpg)"><span class="dock__img"></span><span class="dock__t">Sky</span><span class="dock__s">12 tours · from AED 199</span></button>
+    <button class="dock__item" data-mood="city" data-h1="Your own car, your own day." data-sub="A private city tour in a Fortuner, Lexus, GMC or a 15-seat coach: old Dubai, the Frame, the Marina, Abu Dhabi's Grand Mosque. Guide included." style="--img:url(img/Private-City-Tour-by-Fortuner-8.jpg)"><span class="dock__img"></span><span class="dock__t">City</span><span class="dock__s">14 vehicles · from AED 200</span></button>
+  </div>
+  <div class="scrollcue"><i></i>scroll to begin the day</div>
+</section>
+
+<!-- 2. THE DAY: a pinned scroll story, 3:00 PM to 9:30 PM, the sky changes with you -->
+<section class="day" id="day">
+  <div class="day__pin">
+    <div class="day__sky"></div>
+    <div class="stars" id="stars"></div>
+    <div class="day__scenes">
+      <div class="day__scene" style="--img:url(img/Private-Desert-Safari-1.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/Dubai-Desert-Safari.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/Desert-Safari-With-Falcon-Photo-11.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/untitled-design-12-68c4fec602f94.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/Morning-Desert-Safari-Dubai-2.jpg)"></div>
+    </div>
+    <div class="day__shade"></div>
+    <div class="grain"></div>
+
+    <div class="day__head">
+      <p class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span>Evening desert safari · how your day goes</p>
+      <div class="day__clock"><b id="dayClock">3:00 PM</b><span id="dayPlace">Your hotel lobby</span></div>
+    </div>
+
+    <div class="day__beats">
+      <article class="beat" data-time="3:00 PM" data-place="Your hotel lobby"><h2>A Land Cruiser pulls up. Your name is on the list.</h2><p>Pickup from any Dubai hotel or address between 3:00 and 3:30 PM. Air-conditioned 4x4, six seats, your driver is also your guide.</p></article>
+      <article class="beat" data-time="4:15 PM" data-place="Lahbab red dunes"><h2>Tyres deflate. The dunes begin.</h2><p>Thirty minutes of dune bashing on the red sand. Stop at the top, sandboard down, and watch the convoy take the next ridge.</p></article>
+      <article class="beat" data-time="6:05 PM" data-place="Sunset point"><h2>The sun goes down while you are on a camel.</h2><p>Camel ride, falcon photo, the light turns orange and then gold. This is the picture everyone posts.</p></article>
+      <article class="beat" data-time="7:30 PM" data-place="Arabian camp"><h2>Dinner under the stars. Three shows.</h2><p>BBQ buffet, Arabic coffee and dates, henna, shisha corner, then belly dance, Tanoura and the fire show.</p></article>
+      <article class="beat" data-time="9:30 PM" data-place="Back at your hotel"><h2>Home by ten, sand still in your shoes.</h2><p>Drop-off at the door. The whole evening from AED 99 per person, paid on arrival if you like.</p></article>
+    </div>
+
+    <div class="day__timeline" id="timeline"><i></i><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="day__book">
+      <div><small>Evening desert safari</small><b>from AED 99</b><em>per person · pay on arrival</em></div>
+      <a class="btn btn--orange magnetic" href="https://alemiratestours.com/to_book/desert-safari-dubai-in-99-aed/" target="_blank" rel="noopener">Book this evening</a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WORLDS: horizontal scroll, four places to be -->
+<section class="worlds" id="worlds">
+  <div class="worlds__pin">
+    <div class="worlds__head">
+      <p class="eyebrow"><span class="eyebrow__dot"></span>Where do you want to be?</p>
+      <h2 class="h2">Four worlds. One pickup.</h2>
+      <p class="lede">Scroll sideways. Every world is a category page with filters for price, time of day and private or shared.</p>
+    </div>
+    <div class="worlds__track" id="worldsTrack">
+      <a class="world" href="#" style="--img:url(img/Desert-Safari-with-Dune-Buggy-3.jpg)"><span class="world__img"></span><span class="world__body"><small>Desert</small><b>Sand under the tyres, stars over the camp.</b><ul><li>Evening safari<i>AED 99</i></li><li>Morning with quad bike<i>AED 399</i></li><li>Overnight<i>AED 399</i></li><li>Private VIP<i>AED 1,650</i></li></ul><em>13 safaris →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/al-seef-dhow-cruise-2.jpg)"><span class="world__img"></span><span class="world__body"><small>Sea</small><b>A lit dhow, a buffet, the skyline sliding past.</b><ul><li>Dinner cruise, Canal<i>AED 59</i></li><li>Dhow cruise, Marina<i>AED 99</i></li><li>Mega yacht dinner<i>AED 249</i></li><li>Yacht rental 36 to 101 ft<i>AED 399</i></li></ul><em>8 cruises, 10 yachts →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/Dubai-e1761907577327.jpg)"><span class="world__img"></span><span class="world__body"><small>Sky</small><b>124 floors up, or 12 minutes over the Palm.</b><ul><li>Burj Khalifa At The Top<i>AED 199</i></li><li>Helicopter 12 min<i>AED 699</i></li><li>Hot air balloon<i>AED 1,200</i></li><li>Skydive Dubai<i>AED 2,200</i></li></ul><em>12 tours →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/Private-City-Tour-by-Fortuner-8.jpg)"><span class="world__img"></span><span class="world__body"><small>City</small><b>Your own car, your own guide, your own day.</b><ul><li>Dubai city tour<i>AED 99</i></li><li>Private by Fortuner<i>AED 300</i></li><li>Abu Dhabi Grand Mosque<i>AED 249</i></li><li>15-seat coach<i>AED 450</i></li></ul><em>14 vehicles →</em></span></a>
+      <a class="world world--more" href="#"><span class="world__body"><small>Everything</small><b>96 tours and tickets, one WhatsApp number.</b><em>See all tours →</em></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. NIGHT ON THE WATER: the sea, animated -->
+<section class="sea" id="sea">
+  <div class="sea__lights" aria-hidden="true"></div>
+  <div class="sea__water" aria-hidden="true"></div>
+  <div class="sea__inner">
+    <div class="sea__copy">
+      <p class="eyebrow eyebrow--gold"><span class="eyebrow__dot"></span>Night on the water · 7:30 to 9:30 PM</p>
+      <h2 class="h2 h2--light">The city looks better from a dhow.</h2>
+      <p class="lede lede--light">Wooden boat, string lights, international buffet, Tanoura show, the Marina towers or the Canal bridges going by. Board at 7:30, back on land by 9:30, pickup if you want it.</p>
+      <ul class="rows">
+        <li><span><b>Dinner Dhow Cruise, Canal</b><small>2 hours · buffet · live show</small></span><i>from AED 59</i></li>
+        <li><span><b>Dhow Cruise, Marina</b><small>2 hours · upper deck open air</small></span><i>from AED 99</i></li>
+        <li><span><b>5-Star Mega Yacht Dinner</b><small>3 hours · Lotus · premium buffet</small></span><i>from AED 249</i></li>
+        <li><span><b>Private Love Boat</b><small>1 hour · two people · Marina</small></span><i>from AED 799</i></li>
+      </ul>
+      <a class="btn btn--orange magnetic" href="#">See all cruises</a>
+    </div>
+    <figure class="sea__photo reveal"><img src="img/Premium-Dinner-Cruise-Marina-3T.jpg" alt="Dinner dhow on Dubai Marina at night"><figcaption>Premium dinner cruise, Dubai Marina</figcaption></figure>
+  </div>
+</section>
+
+<!-- 5. MOST BOOKED: tilt cards + the marquee -->
+<section class="booked" id="booked">
+  <div class="marquee" aria-hidden="true"><div class="marquee__track"><span>5.0 on Google</span><span>57 reviews</span><span>10,000+ guests</span><span>Pay on arrival</span><span>Hotel pickup included</span><span>WhatsApp 24/7</span><span>96 tours</span><span>Since 2021</span><span>5.0 on Google</span><span>57 reviews</span><span>10,000+ guests</span><span>Pay on arrival</span><span>Hotel pickup included</span><span>WhatsApp 24/7</span><span>96 tours</span><span>Since 2021</span></div></div>
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div><p class="eyebrow"><span class="eyebrow__dot"></span>Most booked this month</p><h2 class="h2">The ones people actually pick.</h2></div>
+      <a class="btn btn--ghost magnetic" href="#">All 96 tours</a>
+    </div>
+    <div class="cards" id="cards">
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/Dubai-Desert-Safari.jpg)"><i class="tag">Save 34%</i></span><span class="card__body"><small>Dubai · 6 h · hotel pickup</small><b>Desert Safari Dubai in 99 AED</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 99 <s>AED 150</s></span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/Desert-Safari-With-Falcon-Photo-11.jpg)"><i class="tag">Save 20%</i></span><span class="card__body"><small>Dubai · 6 h · hotel pickup</small><b>Evening Desert Safari with Falcon Photo</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 160 <s>AED 200</s></span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/dinner-dhow-canal.jpg)"></span><span class="card__body"><small>Dubai Canal · 3 h</small><b>Dinner Dhow Cruise Canal</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 59</span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/Dubai-e1761907577327.jpg)"></span><span class="card__body"><small>Dubai · 1 h</small><b>Burj Khalifa At The Top Tickets</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 199</span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/overnight-safari.jpg)"></span><span class="card__body"><small>Dubai · 15 h · hotel pickup</small><b>Overnight Desert Safari</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 399</span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/lotus-mega-yacht-9T.jpg)"></span><span class="card__body"><small>Dubai Marina · 3 h</small><b>5-Star Mega Yacht Dinner Cruise</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 249</span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/Private-City-Tour-by-Fortuner-Tital.jpg)"></span><span class="card__body"><small>Dubai · 10 h · private</small><b>Private City Tour by Fortuner</b><span class="rate">★★★★★ 5.0 (1)</span><span class="price"><em>from</em>AED 300</span></span></a>
+      <a class="card tilt" href="#"><span class="card__img" style="--img:url(img/future-museum.jpg)"></span><span class="card__body"><small>Dubai · 2 h</small><b>Museum of the Future Tickets</b><span class="rate">★★★★★ 5.0 (2)</span><span class="price"><em>from</em>AED 145</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PROOF: polaroids from the people we drove -->
+<section class="proofs" id="proofs">
+  <div class="wrap">
+    <div class="head-row reveal">
+      <div><p class="eyebrow"><span class="eyebrow__dot"></span>From the people we drove</p><h2 class="h2">Rated 5.0 on Google. Guides named by name.</h2></div>
+      <div class="gbadge"><b>G</b><span><strong>5.0 ★★★★★</strong><small>57 Google reviews · public profile "Desert Safari Dubai"</small></span></div>
+    </div>
+    <div class="polaroids" id="polaroids">
+      <figure class="polaroid" style="--img:url(img/Desert-Safari-with-Quad-Bike-1.jpg);--r:-4deg"><span class="polaroid__img"></span><figcaption>"We were on safari in the desert. An incredibly beautiful journey. Muhammad's guide was with us, very responsible and sociable. He picked us up in a great car."<b>Александр Мельников · Google</b></figcaption></figure>
+      <figure class="polaroid" style="--img:url(img/Desert-Safari-With-Falcon-Photo-6.jpg);--r:3deg"><span class="polaroid__img"></span><figcaption>"Great experience! Nice tour and well assisted by Mohammad Luqman. Highly recommended."<b>Chew Nya Chuah · Google</b></figcaption></figure>
+      <figure class="polaroid" style="--img:url(img/premium-desert-safari-10.jpg);--r:-2deg"><span class="polaroid__img"></span><figcaption>"Excellent service. He entertained us very well. He has good public relations. Thank you so much my friend. Keep up the good work!"<b>Kevin Santiago · Google</b></figcaption></figure>
+      <figure class="polaroid" style="--img:url(img/Private-Morning-Desert-Safari-1.jpg);--r:5deg"><span class="polaroid__img"></span><figcaption>"Very nice experience, best safari tour ever."<b>Elvira Santiago · Google</b></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 7. ENQUIRE: the WhatsApp conversation, typed in front of you -->
+<section class="enquire" id="enquire">
+  <div class="wrap enquire__grid">
+    <div class="reveal">
+      <p class="eyebrow eyebrow--gold"><span class="eyebrow__dot"></span>Groups · corporate · visas · anything</p>
+      <h2 class="h2 h2--light">Say the day you want. Get a plan and a price within the hour.</h2>
+      <p class="lede lede--light">Families, company outings, school trips, 30 to 90 day visas with insurance, airport transfers. One WhatsApp number, a human on the other end, 24/7.</p>
+      <form class="enq" onsubmit="return false">
+        <input type="tel" placeholder="Your WhatsApp number" aria-label="Your WhatsApp number">
+        <input type="text" placeholder="What and when, in your words" aria-label="What and when">
+        <button class="btn btn--orange" type="submit">Send</button>
+      </form>
+      <p class="muted">or message +971 58 132 0909 directly</p>
+    </div>
+    <div class="chat reveal" id="chat" aria-hidden="true">
+      <div class="chat__head"><img src="img/logo.png" alt=""><span><b>Al Emirates Tours</b><small>online · replies in minutes</small></span></div>
+      <div class="chat__body">
+        <p class="msg msg--me" data-typed="Hi! 2 adults + 1 child, evening safari on Saturday, pickup at JBR?"></p>
+        <p class="msg msg--them" data-typed="Done. Pickup 3:15 PM at your hotel door, 4x4, BBQ dinner and shows included. AED 99 each, pay the driver on arrival. Confirmation coming now."></p>
+        <p class="msg msg--them msg--card" data-typed="✓ Booking 261105 · Evening Desert Safari · Sat 3:15 PM · 3 guests · AED 297"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div><img class="foot__logo" src="img/logo-white.png" alt="Al Emirates Tours"><p>Al Emirates Tours & Travels, Dubai, United Arab Emirates. Desert safaris, cruises, tickets, private tours and visas since 2021.</p><p><b>+971 58 132 0909</b> · WhatsApp 24/7<br>info@alemiratestours.com</p></div>
+    <div><b>Tours</b><a href="#">Desert safari</a><a href="#">Dhow & dinner cruises</a><a href="#">Attraction tickets</a><a href="#">Theme & water parks</a><a href="#">Yacht rental</a><a href="#">Private city tours</a><a href="#">Helicopter & adventure</a></div>
+    <div><b>Destinations</b><a href="#">Dubai</a><a href="#">Abu Dhabi</a><a href="#">Sharjah</a><a href="#">Ras Al Khaimah</a><a href="#">Musandam</a></div>
+    <div><b>Company</b><a href="#">About us</a><a href="#">Guides</a><a href="#">Contact</a><a href="#">Reviews</a><a href="#">Terms & conditions</a><a href="#">Privacy policy</a></div>
+  </div>
+  <div class="wrap foot__legal"><span>© 2026 Al Emirates Tours & Travels. Prices in AED per person. Cancellation terms per tour.</span><span>VISA · Mastercard · Cash on arrival · Bank transfer</span></div>
+</footer>
+
+</main>
+
+<div class="stickybar" id="stickybar"><a class="pill pill--wa" href="https://wa.me/971581320909" target="_blank" rel="noopener">WhatsApp</a><a class="pill pill--orange" href="#day">Book a tour · from AED 99</a></div>
+
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
