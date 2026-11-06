@@ -2,6 +2,8 @@
 (() => {
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  /* phones get the 960 px encodes */
+  if (innerWidth <= 760) $$('video[data-src-sm]').forEach(v => { v.src = v.dataset.srcSm; });
   gsap.registerPlugin(ScrollTrigger);
 
   /* smooth scroll */

@@ -35,10 +35,10 @@
 <!-- 1. HERO: the client's own dune video; the mood dock swaps the scene -->
 <section class="hero" id="hero">
   <div class="hero__media">
-    <video class="hero__video scene is-on" data-mood="desert" src="video/safari-1280.mp4" poster="img/video-poster.jpg" autoplay muted loop playsinline></video>
-    <div class="scene scene--img" data-mood="sea" style="--img:url(img/dhow-cruise-marina.jpg)"></div>
-    <div class="scene scene--img" data-mood="sky" style="--img:url(img/Dubai-e1761907577327.jpg)"></div>
-    <div class="scene scene--img" data-mood="city" style="--img:url(img/Al-4-3.jpg)"></div>
+    <video class="hero__video scene is-on" data-mood="desert" src="video/dunes-1920.mp4" data-src-sm="video/dunes-960.mp4" poster="img/poster-dunes.jpg" autoplay muted loop playsinline></video>
+    <video class="hero__video scene" data-mood="sea" src="video/marina-1920.mp4" data-src-sm="video/marina-960.mp4" poster="img/poster-marina.jpg" muted loop playsinline preload="none"></video>
+    <div class="scene scene--img" data-mood="sky" style="--img:url(img/scene-sky.jpg)"></div>
+    <div class="scene scene--img" data-mood="city" style="--img:url(img/scene-city.jpg)"></div>
     <div class="hero__shade"></div>
     <div class="grain"></div>
   </div>
@@ -61,10 +61,10 @@
 
   <!-- the mood dock: where do you want to be? -->
   <div class="dock" id="dock" role="tablist" aria-label="Where do you want to be">
-    <button class="dock__item is-on" data-mood="desert" data-h1="Be in the dunes by four." data-sub="Pickup from your hotel at 3:00 PM. Dune bashing by four, camel ride at sunset, BBQ dinner and three shows under the stars. Back by ten." style="--img:url(img/Dubai-Desert-Safari.jpg)"><span class="dock__img"></span><span class="dock__t">Desert</span><span class="dock__s">13 safaris · from AED 99</span></button>
-    <button class="dock__item" data-mood="sea" data-h1="Be on the water by seven." data-sub="A lit wooden dhow on the Marina or the Canal, buffet dinner, live music, the skyline sliding past. Two hours you will talk about." style="--img:url(img/dhow-cruise-marina.jpg)"><span class="dock__img"></span><span class="dock__t">Sea</span><span class="dock__s">8 cruises · from AED 59</span></button>
-    <button class="dock__item" data-mood="sky" data-h1="See all of it from 124 floors up." data-sub="Burj Khalifa At The Top, a 12 to 25 minute helicopter ride over the Palm, a sunrise balloon over the dunes. Tickets in your WhatsApp within minutes." style="--img:url(img/Dubai-e1761907577327.jpg)"><span class="dock__img"></span><span class="dock__t">Sky</span><span class="dock__s">12 tours · from AED 199</span></button>
-    <button class="dock__item" data-mood="city" data-h1="Your own car, your own day." data-sub="A private city tour in a Fortuner, Lexus, GMC or a 15-seat coach: old Dubai, the Frame, the Marina, Abu Dhabi's Grand Mosque. Guide included." style="--img:url(img/Private-City-Tour-by-Fortuner-8.jpg)"><span class="dock__img"></span><span class="dock__t">City</span><span class="dock__s">14 vehicles · from AED 200</span></button>
+    <button class="dock__item is-on" data-mood="desert" data-h1="Be in the dunes by four." data-sub="Pickup from your hotel at 3:00 PM. Dune bashing by four, camel ride at sunset, BBQ dinner and three shows under the stars. Back by ten." style="--img:url(img/dock-desert.jpg)"><span class="dock__img"></span><span class="dock__t">Desert</span><span class="dock__s">13 safaris · from AED 99</span></button>
+    <button class="dock__item" data-mood="sea" data-h1="Be on the water by seven." data-sub="A lit wooden dhow on the Marina or the Canal, buffet dinner, live music, the skyline sliding past. Two hours you will talk about." style="--img:url(img/dock-sea.jpg)"><span class="dock__img"></span><span class="dock__t">Sea</span><span class="dock__s">8 cruises · from AED 59</span></button>
+    <button class="dock__item" data-mood="sky" data-h1="See all of it from 124 floors up." data-sub="Burj Khalifa At The Top, a 12 to 25 minute helicopter ride over the Palm, a sunrise balloon over the dunes. Tickets in your WhatsApp within minutes." style="--img:url(img/dock-sky.jpg)"><span class="dock__img"></span><span class="dock__t">Sky</span><span class="dock__s">12 tours · from AED 199</span></button>
+    <button class="dock__item" data-mood="city" data-h1="Your own car, your own day." data-sub="A private city tour in a Fortuner, Lexus, GMC or a 15-seat coach: old Dubai, the Frame, the Marina, Abu Dhabi's Grand Mosque. Guide included." style="--img:url(img/dock-city.jpg)"><span class="dock__img"></span><span class="dock__t">City</span><span class="dock__s">14 vehicles · from AED 200</span></button>
   </div>
   <div class="scrollcue"><i></i>scroll to begin the day</div>
 </section>
@@ -75,11 +75,11 @@
     <div class="day__sky"></div>
     <div class="stars" id="stars"></div>
     <div class="day__scenes">
-      <div class="day__scene" style="--img:url(img/Private-Desert-Safari-1.jpg)"></div>
-      <div class="day__scene" style="--img:url(img/Dubai-Desert-Safari.jpg)"></div>
-      <div class="day__scene" style="--img:url(img/Desert-Safari-With-Falcon-Photo-11.jpg)"></div>
-      <div class="day__scene" style="--img:url(img/untitled-design-12-68c4fec602f94.jpg)"></div>
-      <div class="day__scene" style="--img:url(img/Morning-Desert-Safari-Dubai-2.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/day-1-pickup.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/day-2-dunes.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/day-3-sunset.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/day-4-camp.jpg)"></div>
+      <div class="day__scene" style="--img:url(img/day-5-night.jpg)"></div>
     </div>
     <div class="day__shade"></div>
     <div class="grain"></div>
@@ -114,10 +114,10 @@
       <p class="lede">Scroll sideways. Every world is a category page with filters for price, time of day and private or shared.</p>
     </div>
     <div class="worlds__track" id="worldsTrack">
-      <a class="world" href="#" style="--img:url(img/Desert-Safari-with-Dune-Buggy-3.jpg)"><span class="world__img"></span><span class="world__body"><small>Desert</small><b>Sand under the tyres, stars over the camp.</b><ul><li>Evening safari<i>AED 99</i></li><li>Morning with quad bike<i>AED 399</i></li><li>Overnight<i>AED 399</i></li><li>Private VIP<i>AED 1,650</i></li></ul><em>13 safaris →</em></span></a>
-      <a class="world" href="#" style="--img:url(img/al-seef-dhow-cruise-2.jpg)"><span class="world__img"></span><span class="world__body"><small>Sea</small><b>A lit dhow, a buffet, the skyline sliding past.</b><ul><li>Dinner cruise, Canal<i>AED 59</i></li><li>Dhow cruise, Marina<i>AED 99</i></li><li>Mega yacht dinner<i>AED 249</i></li><li>Yacht rental 36 to 101 ft<i>AED 399</i></li></ul><em>8 cruises, 10 yachts →</em></span></a>
-      <a class="world" href="#" style="--img:url(img/Dubai-e1761907577327.jpg)"><span class="world__img"></span><span class="world__body"><small>Sky</small><b>124 floors up, or 12 minutes over the Palm.</b><ul><li>Burj Khalifa At The Top<i>AED 199</i></li><li>Helicopter 12 min<i>AED 699</i></li><li>Hot air balloon<i>AED 1,200</i></li><li>Skydive Dubai<i>AED 2,200</i></li></ul><em>12 tours →</em></span></a>
-      <a class="world" href="#" style="--img:url(img/Private-City-Tour-by-Fortuner-8.jpg)"><span class="world__img"></span><span class="world__body"><small>City</small><b>Your own car, your own guide, your own day.</b><ul><li>Dubai city tour<i>AED 99</i></li><li>Private by Fortuner<i>AED 300</i></li><li>Abu Dhabi Grand Mosque<i>AED 249</i></li><li>15-seat coach<i>AED 450</i></li></ul><em>14 vehicles →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/world-desert.jpg)"><span class="world__img"></span><span class="world__body"><small>Desert</small><b>Sand under the tyres, stars over the camp.</b><ul><li>Evening safari<i>AED 99</i></li><li>Morning with quad bike<i>AED 399</i></li><li>Overnight<i>AED 399</i></li><li>Private VIP<i>AED 1,650</i></li></ul><em>13 safaris →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/world-sea.jpg)"><span class="world__img"></span><span class="world__body"><small>Sea</small><b>A lit dhow, a buffet, the skyline sliding past.</b><ul><li>Dinner cruise, Canal<i>AED 59</i></li><li>Dhow cruise, Marina<i>AED 99</i></li><li>Mega yacht dinner<i>AED 249</i></li><li>Yacht rental 36 to 101 ft<i>AED 399</i></li></ul><em>8 cruises, 10 yachts →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/world-sky.jpg)"><span class="world__img"></span><span class="world__body"><small>Sky</small><b>124 floors up, or 12 minutes over the Palm.</b><ul><li>Burj Khalifa At The Top<i>AED 199</i></li><li>Helicopter 12 min<i>AED 699</i></li><li>Hot air balloon<i>AED 1,200</i></li><li>Skydive Dubai<i>AED 2,200</i></li></ul><em>12 tours →</em></span></a>
+      <a class="world" href="#" style="--img:url(img/world-city.jpg)"><span class="world__img"></span><span class="world__body"><small>City</small><b>Your own car, your own guide, your own day.</b><ul><li>Dubai city tour<i>AED 99</i></li><li>Private by Fortuner<i>AED 300</i></li><li>Abu Dhabi Grand Mosque<i>AED 249</i></li><li>15-seat coach<i>AED 450</i></li></ul><em>14 vehicles →</em></span></a>
       <a class="world world--more" href="#"><span class="world__body"><small>Everything</small><b>96 tours and tickets, one WhatsApp number.</b><em>See all tours →</em></span></a>
     </div>
   </div>
