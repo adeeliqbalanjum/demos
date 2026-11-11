@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V5 · booking-first</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Concept prototype: a booking-first homepage for Al Emirates Tours. Pick an experience, a date and your guests, reserve and pay on arrival.">
+<link rel="icon" href="img/logo.png">
+<link rel="preload" as="image" href="img/aet-v5-hero.jpg" media="(min-width:701px)">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="strip">
+  <div class="wrap strip__in">
+    <ul class="ticks ticks--light"><li>Book now, pay on arrival</li><li>Free hotel pickup in Dubai</li><li class="hide-s">Confirmation on WhatsApp in minutes</li></ul>
+    <a class="strip__wa" href="https://wa.me/971581320909" target="_blank" rel="noopener">WhatsApp 24/7 · +971 58 132 0909</a>
+  </div>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero__img" aria-hidden="true"></div>
+  <div class="hero__shade" aria-hidden="true"></div>
+
+  <nav class="nav wrap" aria-label="Main">
+    <a class="nav__logo" href="#top"><img src="img/logo-white.png" alt="Al Emirates Tours" width="172" height="47"></a>
+    <div class="nav__links"><a href="#booked" data-filter="safari">Desert safari</a><a href="#booked" data-filter="cruise">Cruises &amp; yachts</a><a href="#booked" data-filter="tickets">Tickets &amp; parks</a><a href="#booked" data-filter="private">Private tours</a><a href="#plan">Visas</a><a href="#questions">Questions</a></div>
+    <div class="nav__right"><a class="btn btn--glass btn--s" href="https://wa.me/971581320909" target="_blank" rel="noopener">WhatsApp</a><button class="btn btn--orange btn--s" data-book>Book a tour</button></div>
+  </nav>
+
+  <div class="wrap hero__copy">
+    <p class="pill rise" style="--d:0"><span class="stars">★★★★★</span> 5.0 on Google · 57 reviews<span class="hide-s"> · Dubai operator since 2021</span></p>
+    <h1 class="h1 rise" style="--d:1">Tonight you could be <br>watching this sunset.</h1>
+    <p class="hero__sub rise" style="--d:2">Desert safaris, dhow cruises, Burj Khalifa tickets and private tours across the UAE. Pick a date, we collect you from your hotel, you pay the driver on arrival.</p>
+  </div>
+
+  <button class="phototag rise" style="--d:4" data-book="desert-safari-dubai-in-99-aed">
+    <img src="img/aet-t-desert-safari-dubai-in-99-aed.jpg" alt="" width="52" height="52">
+    <span><small>This is the 6:05 PM sunset stop</small><b>Evening Desert Safari · from AED 99</b></span><i>→</i>
+  </button>
+
+  <!-- the booking bar -->
+  <div class="wrap hero__barwrap">
+    <form class="bar fadein" style="--d:3" id="bar" onsubmit="return false" aria-label="Book a tour">
+      <div class="bar__tabs" role="tablist" id="tabs"></div>
+      <div class="bar__fields">
+        <div class="field" data-pop="exp">
+          <button type="button" class="field__btn" aria-haspopup="listbox"><i class="ic">✦</i><span><small>Experience</small><b id="fExp">Evening desert safari</b><em id="fExpSub">from AED 99 per person</em></span></button>
+          <div class="pop pop--list" id="popExp" role="listbox"></div>
+        </div>
+        <div class="field" data-pop="date">
+          <button type="button" class="field__btn" aria-haspopup="dialog"><i class="ic">▦</i><span><small>Date</small><b id="fDate">Today</b><em id="fDateSub">pick any date</em></span></button>
+          <div class="pop pop--date" id="popDate"></div>
+        </div>
+        <div class="field" data-pop="guests">
+          <button type="button" class="field__btn" aria-haspopup="dialog"><i class="ic">☺</i><span><small>Guests</small><b id="fGuests">2 guests</b><em id="fGuestsSub">2 adults</em></span></button>
+          <div class="pop pop--guests" id="popGuests"></div>
+        </div>
+        <label class="field field--input"><i class="ic">⌂</i><span><small>Pickup</small><input id="fPickup" type="text" placeholder="Hotel or area in Dubai" autocomplete="off"><em>any Dubai hotel or address</em></span></label>
+        <button type="button" class="btn btn--orange bar__go" id="barGo">Check availability <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="bar__foot">
+        <ul class="ticks"><li>No card needed to hold your seat</li><li>Pay the driver on arrival, or by card online</li><li class="hide-m">Change the date with one WhatsApp message</li></ul>
+        <p class="bar__total"><span id="barGuests">2 guests</span> <b id="barTotal">AED 198 total</b></p>
+      </div>
+    </form>
+  </div>
+</header>
+
+<main>
+
+<!-- THREE TAPS -->
+<section class="sec sec--sand" id="how">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">How booking works</p><h2 class="h2">Three taps. Then we come and get you.</h2><p class="lede">No account, no card to hold a seat, no waiting for an email. Most people finish in under a minute.</p></div>
+    <div class="steps">
+      <article class="step reveal"><h3><i>1</i>Pick your experience</h3><p>Every tour shows its from-price, duration, rating and whether pickup is included, right on the card.</p>
+        <div class="viz"><div class="mini is-on"><img src="img/aet-t-desert-safari-dubai-in-99-aed.jpg" alt="" loading="lazy"><span><b>Evening Desert Safari</b><small>from AED 99 · hotel pickup</small></span><u>✓</u></div><div class="mini"><img src="img/aet-t-dinner-dhow-cruise-canal.jpg" alt="" loading="lazy"><span><b>Dinner Dhow Cruise, Canal</b><small>from AED 59 · hotel pickup</small></span><u></u></div></div></article>
+      <article class="step reveal"><h3><i>2</i>Choose the date and guests</h3><p>Today, tomorrow or any date. The total changes as you add people, before you commit to anything.</p>
+        <div class="viz"><div class="datechips" id="vizDates"></div><div class="stepper stepper--viz"><span><b>Guests</b><small>2 adults · 1 child</small></span><span class="ctl"><i>−</i><b>3</b><i class="plus">+</i></span></div></div></article>
+      <article class="step reveal"><h3><i>3</i>Reserve, pay on arrival</h3><p>Your voucher, pickup time and driver contact arrive on WhatsApp within minutes.</p>
+        <div class="viz viz--wa"><div class="bubble"><small><i class="wa-dot">✆</i>Al Emirates Tours · now</small><p>Booking confirmed ✓<br>Evening Desert Safari · <span id="vizDay">Saturday</span><br>Pickup 3:15 PM, JBR · 3 guests<br>AED 297, pay the driver on arrival</p></div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- WORLDS -->
+<section class="sec" id="worlds">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Start with a feeling</p><h2 class="h2">Where do you want to be tonight?</h2><p class="lede">Four worlds, one pickup. Each one filters the tours below.</p></div><a class="btn btn--ghost btn--s" href="#booked" data-filter="all">All tours <span aria-hidden="true">→</span></a></div>
+    <div class="bento">
+      <a class="world world--big reveal" href="#booked" data-filter="safari" style="--img:url(img/aet-v5-desert.jpg)"><span class="world__img"></span><i class="world__go">→</i><span class="world__tx"><small>Desert</small><b>Sand under the tyres, <br>stars over the camp.</b><em id="wSafari">from AED 99</em></span></a>
+      <a class="world world--wide reveal" href="#booked" data-filter="cruise" style="--img:url(img/aet-v5-sea.jpg)"><span class="world__img"></span><i class="world__go">→</i><span class="world__tx"><small>Sea</small><b>A lit dhow, a buffet, the skyline sliding past.</b><em id="wCruise">from AED 34</em></span></a>
+      <a class="world reveal" href="#booked" data-filter="tickets" style="--img:url(img/aet-v5-sky.jpg)"><span class="world__img"></span><i class="world__go">→</i><span class="world__tx"><small>Sky</small><b>124 floors up.</b><em>Burj Khalifa from AED 199</em></span></a>
+      <a class="world reveal" href="#booked" data-filter="private" style="--img:url(img/aet-cat-city.jpg)"><span class="world__img"></span><i class="world__go">→</i><span class="world__tx"><small>City</small><b>Your own car and guide.</b><em id="wPrivate">from AED 200</em></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- MOST BOOKED -->
+<section class="sec sec--sand" id="booked">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Most booked this month</p><h2 class="h2">The ones people actually pick.</h2><p class="lede">Prices are per person and include hotel pickup where shown. Tap Book and the reserve panel opens over the page.</p></div></div>
+    <div class="chips reveal" id="chips" role="tablist" aria-label="Filter tours"></div>
+    <div class="cards" id="cards"></div>
+    <p class="cards__more reveal"><button class="btn btn--ghost" id="moreBtn">Show more tours</button><span id="cardsCount"></span></p>
+  </div>
+</section>
+
+<!-- THE EVENING -->
+<section class="sec sec--navy" id="evening">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow eyebrow--gold">The evening desert safari</p><h2 class="h2 h2--light">Your evening, hour by hour.</h2><p class="lede lede--light">This is what AED 99 buys. Six and a half hours, door to door, nothing to organise.</p></div>
+      <div class="evening__cta"><span><small>from, per person</small><b>AED 99</b></span><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening <span aria-hidden="true">→</span></button></div></div>
+    <ol class="timeline" id="timeline">
+      <li class="stop reveal"><figure><img src="img/aet-v5-pickup.jpg" alt="4x4 waiting on the sand" loading="lazy"><figcaption>3:00 PM</figcaption></figure><span class="rail"></span><h3>Pickup at your hotel</h3><p>A 4x4 at the door. Your driver is your guide for the night.</p></li>
+      <li class="stop reveal"><figure><img src="img/aet-v5-convoy.jpg" alt="4x4 driving the dunes" loading="lazy"><figcaption>4:30 PM</figcaption></figure><span class="rail"></span><h3>Dune bashing</h3><p>Thirty minutes on the red sand, then sandboarding from the top.</p></li>
+      <li class="stop reveal"><figure><img src="img/aet-v5-sunset.jpg" alt="Camel ride at sunset" loading="lazy"><figcaption>6:05 PM</figcaption></figure><span class="rail"></span><h3>Sunset and camels</h3><p>Camel ride and the photo everyone posts.</p></li>
+      <li class="stop reveal"><figure><img src="img/aet-v5-camp.jpg" alt="Tanoura dancer at the camp" loading="lazy"><figcaption>7:30 PM</figcaption></figure><span class="rail"></span><h3>Dinner and three shows</h3><p>BBQ buffet, Tanoura, belly dance and the fire show.</p></li>
+      <li class="stop reveal"><figure><img src="img/aet-v5-night.jpg" alt="Desert camp under the stars" loading="lazy"><figcaption>9:30 PM</figcaption></figure><span class="rail"></span><h3>Back at your hotel</h3><p>Dropped at the same door, sand still in your shoes.</p></li>
+    </ol>
+    <div class="included reveal"><small>Included</small><ul class="ticks ticks--white"><li>Hotel pickup and drop-off</li><li>Dune bashing</li><li>Sandboarding</li><li>Camel ride</li><li>BBQ dinner</li><li>Three live shows</li><li>Henna and Arabic coffee</li></ul></div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">From the people we drove</p><h2 class="h2">Rated 5.0 on Google. Guides named by name.</h2></div></div>
+    <div class="proof">
+      <div class="score reveal"><span class="g">G</span><b><span data-count="5.0">5.0</span></b><span class="stars stars--l">★★★★★</span><p>57 Google reviews on the public profile "Desert Safari Dubai".</p><div class="score__foot"><strong>10,000+</strong><span>guests driven<br>since 2021</span></div></div>
+      <div class="reviews">
+        <blockquote class="review review--hot reveal"><span class="stars">★★★★★</span><p>"We were on safari in the desert. An incredibly beautiful journey. Muhammad's guide was with us. He is a very responsible and sociable person. He picked us up in a great car."</p><footer><i>А</i><b>Александр Мельников</b><span>· Google</span></footer></blockquote>
+        <blockquote class="review reveal"><span class="stars">★★★★★</span><p>"Great experience! Nice tour and well assisted by Mohammad Luqman. Highly recommended."</p><footer><i>C</i><b>Chew Nya Chuah</b><span>· Google</span></footer></blockquote>
+        <blockquote class="review reveal"><span class="stars">★★★★★</span><p>"Excellent service. He entertained us very well. He has good public relations. Thank you so much my friend. Keep up the good work!"</p><footer><i>K</i><b>Kevin Santiago</b><span>· Google</span></footer></blockquote>
+        <blockquote class="review reveal"><span class="stars">★★★★★</span><p>"Very nice experience, best safari tour ever."</p><footer><i>E</i><b>Elvira Santiago</b><span>· Google</span></footer></blockquote>
+      </div>
+    </div>
+    <ul class="promises reveal">
+      <li><i>✓</i><span><b>Pay on arrival</b><small>Reserve now, pay the driver in cash, or by card online.</small></span></li>
+      <li><i>⌂</i><span><b>Pickup from any hotel</b><small>Included on safaris and cruises in Dubai.</small></span></li>
+      <li><i>✆</i><span><b>A human on WhatsApp</b><small>One number, 24/7, replies in minutes.</small></span></li>
+      <li><i>★</i><span><b>Dubai operator since 2021</b><small>Al Emirates Tours &amp; Travels, own 4x4 fleet.</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PLAN IT FOR ME -->
+<section class="sec sec--flush" id="plan">
+  <div class="wrap">
+    <div class="plan reveal">
+      <div class="plan__copy">
+        <p class="eyebrow eyebrow--gold">Not sure what to pick?</p>
+        <h2 class="h2 h2--light">Say the day you want. <br>Get a plan and a price within the hour.</h2>
+        <p class="lede lede--light">Families, company outings, honeymoons, 30 to 90 day visas, airport transfers. A person answers, not a bot.</p>
+        <form class="plan__form" id="planForm" onsubmit="return false"><input type="tel" id="planTel" placeholder="Your WhatsApp number" aria-label="Your WhatsApp number"><input type="text" id="planMsg" placeholder="What and when, in your words" aria-label="What and when"><button class="btn btn--orange" type="submit">Send <span aria-hidden="true">→</span></button></form>
+        <p class="plan__note" id="planNote">or message +971 58 132 0909 directly</p>
+      </div>
+      <div class="chat" id="chat" aria-hidden="true">
+        <div class="chat__head"><i>✆</i><span><b>Al Emirates Tours</b><small>online · replies in minutes</small></span></div>
+        <div class="chat__body">
+          <p class="msg msg--me" data-typed="Hi! 2 adults + 1 child, evening safari on Saturday, pickup at JBR?"></p>
+          <p class="msg" data-typed="Done. Pickup 3:15 PM at your hotel door, 4x4, BBQ dinner and shows included. AED 99 each, pay the driver on arrival."></p>
+          <p class="msg msg--ok" data-typed="✓ Booking confirmed · Saturday · 3 guests · AED 297"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="sec" id="questions">
+  <div class="wrap faq">
+    <div class="head reveal"><p class="eyebrow">Before you book</p><h2 class="h2 h2--s">The four things everyone asks.</h2><p class="lede">Anything else, one message on WhatsApp.</p><a class="btn btn--green btn--s" href="https://wa.me/971581320909" target="_blank" rel="noopener">✆ Ask on WhatsApp</a></div>
+    <div class="faq__list reveal">
+      <details open><summary>Do I have to pay now?<i></i></summary><p>No. Reserve your seats and pay the driver in cash when he arrives, or pay by card online if you prefer. No card is needed to hold a booking.</p></details>
+      <details><summary>Where do you pick up from?<i></i></summary><p>From any hotel or address in Dubai. Pickup from Sharjah is on request. Tell us the place when you reserve, or later on WhatsApp.</p></details>
+      <details><summary>How do I get my ticket?<i></i></summary><p>On WhatsApp, within minutes of reserving: your voucher, the pickup time and your driver's contact.</p></details>
+      <details><summary>Can I change the date?<i></i></summary><p>Send one WhatsApp message with the new date and we move the booking. Cancellation terms are shown on each tour.</p></details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div><img class="foot__logo" src="img/logo-white.png" alt="Al Emirates Tours" width="180" height="49" loading="lazy"><p>Al Emirates Tours &amp; Travels, Dubai, United Arab Emirates. Desert safaris, cruises, tickets, private tours and visas since 2021.</p><p class="foot__contact">+971 58 132 0909 · WhatsApp 24/7<br>info@alemiratestours.com<br>Dubai, United Arab Emirates</p></div>
+    <div><b>Tours</b><a href="#booked" data-filter="safari">Desert safari</a><a href="#booked" data-filter="cruise">Dhow &amp; dinner cruises</a><a href="#booked" data-filter="tickets">Attraction tickets</a><a href="#booked" data-filter="tickets">Theme &amp; water parks</a><a href="#booked" data-filter="cruise">Yacht rental</a><a href="#booked" data-filter="private">Private city tours</a></div>
+    <div><b>Destinations</b><a href="#booked">Dubai</a><a href="#booked">Abu Dhabi</a><a href="#booked">Sharjah</a><a href="#booked">Ras Al Khaimah</a><a href="#booked">Musandam</a></div>
+    <div><b>Company</b><a href="#proof">Reviews</a><a href="#questions">Questions</a><a href="#plan">Group &amp; corporate</a><a href="#plan">Dubai visas</a><a href="#plan">Contact</a></div>
+  </div>
+  <div class="wrap foot__legal"><span>© 2026 Al Emirates Tours &amp; Travels. Prices in AED. Concept prototype: bookings are not sent anywhere; some photos are stock placeholders.</span><span>VISA · Mastercard · Cash on arrival · Bank transfer</span></div>
+</footer>
+
+<!-- sticky booking bar -->
+<div class="sticky" id="sticky" aria-hidden="true">
+  <button class="sticky__info" data-book><img id="stImg" src="img/aet-t-desert-safari-dubai-in-99-aed.jpg" alt="" width="44" height="44"><span><b id="stName">Evening Desert Safari</b><small id="stSub">Today · 2 guests</small></span></button>
+  <b class="sticky__total" id="stTotal">AED 198</b>
+  <a class="wa" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+  <button class="btn btn--orange" data-book><span class="hide-s">Reserve, pay on arrival</span><span class="show-s">Reserve</span></button>
+</div>
+
+<!-- reserve panel -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="panel" id="panel" role="dialog" aria-modal="true" aria-labelledby="pName" hidden>
+  <div class="panel__head"><small>Reserve</small><button id="pClose" aria-label="Close">✕</button></div>
+  <div class="panel__body" id="pBody">
+    <div class="panel__tour"><img id="pImg" src="" alt="" width="64" height="64"><span><b id="pName"></b><small id="pMeta"></small></span></div>
+    <p class="panel__label">Date</p>
+    <div class="datechips datechips--dark" id="pDates"></div>
+    <p class="panel__label">Guests</p>
+    <div class="stepper stepper--dark"><span><b>Adults</b></span><span class="ctl"><button type="button" data-step="adults" data-by="-1" aria-label="Fewer adults">−</button><b id="pAdults">2</b><button type="button" class="plus" data-step="adults" data-by="1" aria-label="More adults">+</button></span></div>
+    <div class="stepper stepper--dark"><span><b>Children</b></span><span class="ctl"><button type="button" data-step="children" data-by="-1" aria-label="Fewer children">−</button><b id="pChildren">0</b><button type="button" class="plus" data-step="children" data-by="1" aria-label="More children">+</button></span></div>
+    <label class="addon" id="pAddonRow"><input type="checkbox" id="pAddon"><span>Add quad bike, 30 min · AED 150</span></label>
+    <p class="panel__label">Where and who</p>
+    <input class="panel__input" id="pPickup" type="text" placeholder="Pickup: hotel or area in Dubai" autocomplete="off">
+    <input class="panel__input" id="pTel" type="tel" placeholder="Your WhatsApp number" autocomplete="tel">
+    <div class="panel__total"><span id="pTotalLabel">Total, 2 guests</span><b id="pTotal">AED 198</b></div>
+    <button class="btn btn--orange panel__go" id="pGo">Reserve, pay on arrival</button>
+    <p class="panel__note">or pay now by card · confirmation on WhatsApp</p>
+  </div>
+  <div class="panel__done" id="pDone" hidden>
+    <div class="done__tick">✓</div>
+    <h3>Reserved. See you <span id="dDay"></span>.</h3>
+    <p class="done__sum" id="dSum"></p>
+    <p class="done__proto">This is a prototype, so nothing was sent. On the real site this is the moment the voucher lands on WhatsApp.</p>
+    <a class="btn btn--green" id="dWa" href="#" target="_blank" rel="noopener">✆ Open this booking in WhatsApp</a>
+    <button class="btn btn--glass" id="dAgain">Book something else</button>
+  </div>
+</aside>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
