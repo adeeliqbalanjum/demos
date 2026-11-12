@@ -1,0 +1,45 @@
+/* Shared by every skin (put in front of the skin by build.js). Lessons from the first two live demos:
+   the opening must never be shorter than its content (a short laptop or a real phone hides the headline under the menu),
+   and a button inside a location card is a button, not an underlined link. */
+.hero{height:auto;min-height:100svh;padding-top:104px}
+.brc a.btn{text-decoration:none;margin-top:0;min-height:52px}
+.brc--cta{justify-content:center;gap:10px}.brc--cta .enq-cta{margin-top:18px}
+.br--one{grid-template-columns:1.1fr .9fr}
+.btn--line{border:1.5px solid currentColor;background:transparent}
+@media (max-width:760px){.br--one{grid-template-columns:1fr}.hero{padding-top:96px}}
+
+/* Skin "bold" (12 Nov 2026, first used for IMO car wash): near-black, one signal yellow, condensed capitals,
+   a slanted yellow stripe across the opening. Loud and fast, the opposite of the salon's quiet serif look. */
+:root{--orange:#FFD60A;--orange2:#E8C200;--navy:#0B0B0C;--navy2:#17181A;--night:#070708;--gold:#FFD60A;--sand:#F3F3F0;--sand2:#E6E6E2;--ink:#0B0B0C;--soft:#47484C;--mute:#75767A;--line:#DCDCD7;--font:"Barlow","Segoe UI",system-ui,sans-serif;--disp:"Barlow Condensed","Arial Narrow",sans-serif}
+.hero__h1,.h2,.beat h2,.world b,.loader__mark,.nav__logo b,.brc h3,.day__clock b,.foot__brand b,.foot a.foot__tel{font-family:var(--disp);font-weight:800;text-transform:uppercase;letter-spacing:0}
+.hero__h1{font-size:clamp(46px,6.2vw,100px);line-height:.92;max-width:17ch}
+.h2{font-size:clamp(38px,5.4vw,78px);line-height:.94;max-width:16ch}
+.beat h2{font-size:clamp(38px,5.8vw,88px);line-height:.92}
+.world b{font-size:clamp(26px,2.5vw,36px);line-height:1;font-weight:700}
+.nav__logo b{font-size:34px;letter-spacing:.02em}.nav__logo small{letter-spacing:.3em}
+.loader__mark{font-size:clamp(70px,13vw,170px);color:var(--orange)}
+.loader__sun{background:radial-gradient(circle,rgba(255,214,10,.9) 0%,rgba(255,214,10,.25) 40%,rgba(255,214,10,0) 68%)}
+/* yellow carries ink text, never white */
+.btn--orange,.pill--orange,.stickybar .pill--orange{color:#0B0B0C}.btn--orange small{color:rgba(11,11,12,.75)}
+.btn--orange{box-shadow:0 14px 34px -14px rgba(255,214,10,.6);font-weight:700}.btn--orange:hover{box-shadow:0 20px 40px -14px rgba(255,214,10,.7)}
+.btn,.pill{border-radius:10px;text-transform:uppercase;letter-spacing:.04em;font-weight:700}
+.eyebrow{color:var(--ink)}.eyebrow__dot{background:var(--orange);height:4px;width:28px}.eyebrow--light{color:#fff}.eyebrow--gold{color:var(--orange)}
+.brc small,.polaroid figcaption b{color:var(--ink)}.brc small{border-bottom:3px solid var(--orange);align-self:flex-start;padding-bottom:3px}
+.brc,.polaroid,.gbadge,.world,.dock__item,.chat,.day__book{border-radius:10px}
+.brc a{color:var(--ink)}
+/* the stripe */
+.hero:before{content:"";position:absolute;top:-10%;bottom:-10%;right:9vw;width:13vw;background:var(--orange);transform:skewX(-14deg);z-index:-1;opacity:.92;mix-blend-mode:hard-light}
+.hero:after{content:"";position:absolute;top:-10%;bottom:-10%;right:calc(9vw + 15vw);width:1.6vw;background:var(--orange);transform:skewX(-14deg);z-index:-1;opacity:.92;mix-blend-mode:hard-light}
+.hero__shade{background:linear-gradient(180deg,rgba(7,7,8,.62) 0%,rgba(7,7,8,.2) 34%,rgba(7,7,8,.5) 64%,rgba(7,7,8,.94) 100%),linear-gradient(90deg,rgba(7,7,8,.7),rgba(7,7,8,0) 62%)}
+.dock__item{background:rgba(7,7,8,.72);border:0;border-top:3px solid rgba(255,255,255,.25)}.dock__item.is-on,.dock__item:hover{background:rgba(7,7,8,.9);border-top-color:var(--orange);transform:none}.dock__item.is-on:before{display:none}
+.dock__t{font-family:var(--disp);font-size:22px;text-transform:uppercase;font-weight:700;letter-spacing:.02em}.dock__img{border-radius:6px}
+.proof b{font-family:var(--disp);font-size:30px;font-weight:700;color:var(--orange)}
+.day__clock b{color:var(--orange)}
+.world--more{background:var(--orange);color:#0B0B0C}.world--more .world__body small,.world--more .world__body b,.world--more .world__body em{color:#0B0B0C}
+.foot__brand b{font-size:46px}.foot a.foot__tel{font-size:38px}
+.brc--cta{background:var(--navy);color:#fff}.brc--cta h3{color:#fff}.brc--cta p{color:rgba(255,255,255,.75)}.brc--cta small{color:var(--orange);border-color:var(--orange)}
+.btn--line{border:1.5px solid rgba(255,255,255,.5);color:#fff;background:transparent}
+.br--one{grid-template-columns:1.1fr .9fr}
+@media (max-width:760px){.hero:before,.hero:after{display:none}.hero__h1{font-size:clamp(40px,12.5vw,54px);max-width:none}.br--one{grid-template-columns:1fr}.nav__logo b{font-size:28px}}
+
+.brc--cta .btn--orange{color:#0B0B0C}.brc--cta .btn--line{color:#fff;border-color:rgba(255,255,255,.55)}
