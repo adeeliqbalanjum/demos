@@ -68,3 +68,16 @@
 .day__clock span{white-space:nowrap}.brc li b{white-space:nowrap}.dock__s{font-size:12px}
 @media (max-width:600px){.polaroids{grid-template-columns:1fr;gap:18px}.polaroid{--r:0deg !important;max-width:340px;margin-inline:auto}.polaroid figcaption{font-size:15px;line-height:1.5}.brc li{font-size:15px}}
 @media (max-width:600px){.day__head .eyebrow{max-width:54%}.day__clock{text-align:right}}
+/* real-phone fix (12 Nov 2026, his iPhone screenshot): in an in-app browser the screen is much shorter than 844 px, and the
+   opening was a fixed 100svh box aligned to the bottom, so the headline slid up under the menu. On phones the opening
+   now grows with its content and always starts below the menu. */
+@media (max-width:760px){
+  .hero{height:auto;min-height:100svh;padding-top:96px;justify-content:flex-end}
+  .hero__copy{padding-bottom:10px}
+  .hero__h1{font-size:clamp(34px,10.4vw,44px);max-width:none}
+  .hero .eyebrow{font-size:11px;letter-spacing:.14em;margin-bottom:10px}
+  .hero__sub{margin-top:12px}.hero__cta{margin-top:18px;gap:10px}.hero__cta .btn{flex:1 1 100%;justify-content:center}
+  .proof{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:20px}
+  .dock{margin-top:18px}
+  .scrollcue{display:none}
+}
