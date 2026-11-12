@@ -1,0 +1,83 @@
+/* Al Inekas Ladies Salon, the "live" concept (12 Nov 2026). Loaded after base.css, which is the motion engine of the
+   Al Emirates Tours Home V2 prototype (the opening Adeel pointed at: video hero with a scene dock, pinned scroll story,
+   sideways strip). This file gives it the salon: a quiet warm-neutral palette (ivory, espresso, one bronze), a fine
+   serif for the big lines over a plain sans, and the few salon-only parts. Footage does the talking. */
+:root{--orange:#8E6230;--orange2:#74501F;--navy:#1B1512;--navy2:#2A211C;--night:#120D0B;--gold:#E6CFA6;--sand:#FBF8F4;--sand2:#F1EAE1;--ink:#1B1512;--soft:#5E534B;--mute:#877B71;--line:#E7DED2;--font:"Plus Jakarta Sans","Segoe UI",system-ui,sans-serif;--serif:"Cormorant Garamond","Times New Roman",serif}
+.i{width:1.1em;height:1.1em;flex:none;display:inline-block;vertical-align:-.16em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.i--brand{stroke:none;fill:currentColor}
+.hero__h1,.h2,.beat h2,.world b,.loader__mark,.nav__logo b,.brc h3,.day__clock b{font-family:var(--serif);font-weight:500;letter-spacing:-.015em}
+.hero__h1{font-size:clamp(42px,5.6vw,84px);line-height:1.02;max-width:19ch}
+.h2{font-size:clamp(34px,4.6vw,62px);line-height:1.02;max-width:17ch}
+.beat h2{font-size:clamp(34px,5vw,72px);line-height:1}
+.world b{font-size:clamp(24px,2.2vw,32px);line-height:1.08;font-weight:600}
+.eyebrow{letter-spacing:.2em;font-weight:600}
+.btn--orange{box-shadow:0 14px 34px -14px rgba(142,98,48,.7)}.btn--orange:hover{box-shadow:0 20px 40px -14px rgba(142,98,48,.8)}
+.loader{background:var(--night)}
+.loader__sun{background:radial-gradient(circle,#F3E3C4 0%,#C89B5C 38%,rgba(142,98,48,0) 70%)}
+.loader__mark{position:relative;color:#fff;font-size:clamp(44px,7vw,84px);line-height:1}
+.nav__logo{display:flex;flex-direction:column;line-height:1;color:#fff}.nav__logo b{font-size:28px;font-weight:600}.nav__logo small{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;opacity:.85;margin-top:4px}
+
+.pill .i{width:17px;height:17px;margin-right:7px}
+.hero__shade{background:linear-gradient(180deg,rgba(18,13,11,.5) 0%,rgba(18,13,11,.12) 30%,rgba(18,13,11,.52) 62%,rgba(18,13,11,.9) 100%)}
+.hero__video{filter:saturate(.9) contrast(1.02)}
+.stars{display:none}
+.day__sky{background:#120D0B}
+.day__scene{filter:saturate(.88)}
+.day__clock b{font-size:clamp(34px,4vw,58px);font-weight:600}
+.world em{display:inline-flex;align-items:center;gap:8px}.world em .i{width:16px;height:16px}
+.world li i{font-style:normal}
+.gbadge{background:#fff;border-color:var(--line);text-decoration:none}.gbadge .gb{width:30px;height:30px;stroke:none;fill:none}
+.gbadge strong{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.gbadge .st{display:inline-flex;gap:1px;color:#D99A1E}.gbadge .st .i{width:15px;height:15px;fill:currentColor;stroke:none}
+.polaroid figcaption b{color:var(--orange)}
+/* two branches */
+.branches{padding:clamp(56px,7vw,110px) 0;background:var(--sand)}
+.br{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.brc{background:#fff;border-radius:26px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:6px}
+.brc small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--orange)}
+.brc h3{font-size:clamp(30px,3vw,42px);line-height:1.05;font-weight:600;color:var(--navy)}
+.brc p{color:var(--soft);font-size:16px}
+.brc ul{list-style:none;margin:16px 0 6px;border-top:1px solid var(--line)}.brc li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);font-size:16px}.brc li span{color:var(--soft)}.brc li b{font-weight:700}
+.brc a{display:inline-flex;align-items:center;gap:8px;font-weight:700;margin-top:10px;min-height:44px;color:var(--navy);text-decoration:underline;text-underline-offset:4px}
+/* booking */
+.enquire{background:var(--night)}
+.enq-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.chat__mark{width:40px;height:40px;border-radius:50%;background:var(--gold);color:var(--night);display:grid;place-items:center;font-weight:700;font-size:14px;flex:none}
+.msg--card{background:var(--sand);border-left-color:var(--orange);font-weight:600}
+.foot{background:var(--night)}
+.stickybar .pill{min-height:48px;display:inline-flex;align-items:center;justify-content:center}
+@media (max-width:760px){
+  .br{grid-template-columns:1fr}.hero__h1{font-size:clamp(42px,12.5vw,60px)}.nav__logo b{font-size:24px}
+  .enq-cta .btn{flex:1 1 100%;justify-content:center}
+}
+.chat,.chat__body{background:#1E1713}.chat{border:1px solid rgba(255,255,255,.1)}
+/* services strip: everything fits the screen while it is pinned (the cards were cut at the bottom) */
+.worlds__pin{gap:20px;padding:84px 0 28px;justify-content:flex-start}
+.worlds .h2{max-width:none;font-size:clamp(28px,3.3vw,46px)}.worlds .lede{margin-top:8px}
+.world{height:min(470px,calc(100svh - 300px));min-height:300px}
+.world__body{padding:22px 24px;gap:10px}
+.world--more{background:var(--night)}
+/* a real footer */
+.foot{padding:76px 0 30px;font-size:15px}
+.foot__brand{margin-bottom:18px;color:#fff}.foot__brand b{display:block;font-size:34px;letter-spacing:-.015em;text-transform:none;margin:0;color:#fff}.foot__brand small{color:rgba(255,255,255,.8)}
+.foot p{line-height:1.6;color:rgba(255,255,255,.75)}
+.foot a.foot__tel{font-family:var(--serif);font-size:30px;font-weight:600;color:#fff;opacity:1;padding:0;margin-top:6px}
+.foot a{padding:6px 0;line-height:1.4}.foot a span{font-size:13px;opacity:.75}
+.foot__legal{padding-bottom:90px;font-size:13px;margin-top:52px}
+@media (max-width:760px){.world{height:auto;min-height:340px}.foot__legal{padding-bottom:100px}}
+/* phone pass (12 Nov 2026, checked at 390 x 844 with tools/demo-phone.js) */
+.day__clock span{white-space:nowrap}.brc li b{white-space:nowrap}.dock__s{font-size:12px}
+@media (max-width:600px){.polaroids{grid-template-columns:1fr;gap:18px}.polaroid{--r:0deg !important;max-width:340px;margin-inline:auto}.polaroid figcaption{font-size:15px;line-height:1.5}.brc li{font-size:15px}}
+@media (max-width:600px){.day__head .eyebrow{max-width:54%}.day__clock{text-align:right}}
+/* real-phone fix (12 Nov 2026, his iPhone screenshot): in an in-app browser the screen is much shorter than 844 px, and the
+   opening was a fixed 100svh box aligned to the bottom, so the headline slid up under the menu. On phones the opening
+   now grows with its content and always starts below the menu. */
+@media (max-width:760px){
+  .hero{height:auto;min-height:100svh;padding-top:96px;justify-content:flex-end}
+  .hero__copy{padding-bottom:10px}
+  .hero__h1{font-size:clamp(34px,10.4vw,44px);max-width:none}
+  .hero .eyebrow{font-size:11px;letter-spacing:.14em;margin-bottom:10px}
+  .hero__sub{margin-top:12px}.hero__cta{margin-top:18px;gap:10px}.hero__cta .btn{flex:1 1 100%;justify-content:center}
+  .proof{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;margin-top:20px}
+  .dock{margin-top:18px}
+  .scrollcue{display:none}
+}

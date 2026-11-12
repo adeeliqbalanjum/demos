@@ -1,0 +1,43 @@
+/* Shared by every skin (put in front of the skin by build.js). Lessons from the first two live demos:
+   the opening must never be shorter than its content (a short laptop or a real phone hides the headline under the menu),
+   and a button inside a location card is a button, not an underlined link. */
+.hero{height:auto;min-height:100svh;padding-top:104px}
+.brc a.btn{text-decoration:none;margin-top:0;min-height:52px}
+.brc--cta{justify-content:center;gap:10px}.brc--cta .enq-cta{margin-top:18px}
+.br--one{grid-template-columns:1.1fr .9fr}
+.btn--line{border:1.5px solid currentColor;background:transparent}
+@media (max-width:760px){.br--one{grid-template-columns:1fr}.hero{padding-top:96px}}
+
+/* Skin "editorial" (12 Nov 2026, first used for Designer Creations tailoring): deep emerald and thread gold on cream,
+   a soft serif, and a split opening: words on an emerald panel, the footage in a tall arch beside it.
+   Arched tops repeat on the service cards. Calm and made-by-hand, unlike the car wash's loud capitals. */
+:root{--orange:#C9A45C;--orange2:#B38E46;--navy:#14382F;--navy2:#1B4A3E;--night:#0E2620;--gold:#E3C98E;--sand:#F7F1E8;--sand2:#EDE4D6;--ink:#17261F;--soft:#55615A;--mute:#7C8780;--line:#E3D9C8;--font:"DM Sans","Segoe UI",system-ui,sans-serif;--disp:"Fraunces","Georgia",serif}
+.hero__h1,.h2,.beat h2,.world b,.loader__mark,.nav__logo b,.brc h3,.day__clock b,.foot__brand b,.foot a.foot__tel{font-family:var(--disp);font-weight:500;letter-spacing:-.02em;text-transform:none}
+.hero__h1{font-size:clamp(38px,4.6vw,72px);line-height:1.04;max-width:15ch}
+.h2{font-size:clamp(32px,4.2vw,58px);line-height:1.06;max-width:18ch}
+.beat h2{font-size:clamp(32px,4.6vw,66px);line-height:1.04}
+.world b{font-size:clamp(22px,2vw,28px);line-height:1.12;font-weight:500}
+.nav__logo b{font-size:24px}.loader__mark{font-size:clamp(34px,5.4vw,66px)}
+.loader__sun{background:radial-gradient(circle,#F3E3B8 0%,#C9A45C 38%,rgba(201,164,92,0) 70%)}
+/* gold carries ink text */
+.btn--orange,.pill--orange,.stickybar .pill--orange{color:#17261F}.btn--orange small{color:rgba(23,38,31,.72)}
+.btn--orange{box-shadow:0 14px 34px -14px rgba(201,164,92,.7)}
+.eyebrow{color:var(--navy)}.eyebrow__dot{background:var(--orange)}.eyebrow--light{color:rgba(255,255,255,.88)}.eyebrow--gold{color:var(--gold)}
+.brc small{color:var(--navy)}.polaroid figcaption b{color:var(--navy)}.brc a{color:var(--navy)}
+.world{border-radius:210px 210px 22px 22px}.world--more{background:var(--navy);border-radius:210px 210px 22px 22px}
+.world__body{padding-top:40px}
+.proof b{font-family:var(--disp);font-weight:500;font-size:26px}
+.day__clock b{font-style:italic}
+.brc--cta{background:var(--navy);color:#fff}.brc--cta h3{color:#fff}.brc--cta p{color:rgba(255,255,255,.78)}.brc--cta small{color:var(--gold)}
+.brc--cta .btn--line{color:#fff}
+.dock__item{background:rgba(14,38,32,.55)}
+@media (min-width:1000px){
+  .hero{background:var(--navy);justify-content:center;padding-bottom:28px}
+  .hero__media{inset:104px 28px 28px 51%;border-radius:999px 999px 26px 26px;overflow:hidden;background:var(--navy2)}
+  .hero__shade{background:linear-gradient(180deg,rgba(14,38,32,.05),rgba(14,38,32,.3))}
+  .hero__copy{width:51%;margin:0;padding-left:max(32px,calc((100vw - 1200px)/2));padding-right:48px}
+  .dock{width:51%;margin:26px 0 0;padding-left:max(32px,calc((100vw - 1200px)/2));padding-right:48px;padding-bottom:0;grid-template-columns:1fr 1fr}
+  .scrollcue{display:none}
+}
+@media (max-width:760px){.hero__h1{font-size:clamp(32px,9.6vw,42px);max-width:none}.world{border-radius:150px 150px 20px 20px}.world__body{padding-top:120px}}
+@media (max-width:760px){.nav__logo small{display:none}.nav__logo b{font-size:20px;line-height:1.05;max-width:9ch;display:block}}
