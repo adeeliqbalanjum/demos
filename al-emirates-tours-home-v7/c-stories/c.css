@@ -29,7 +29,7 @@
 .st__top{position:absolute;left:14px;right:14px;top:26px;display:flex;align-items:center;gap:10px;z-index:3}
 .st__ava{width:34px;height:34px;border-radius:50%;flex:none;background:#fff url(../shared/img/logo.png) 5px 50%/74px auto no-repeat}
 .st__top span{flex:1;min-width:0}.st__top b{display:block;font-size:13.5px;line-height:1.2}.st__top small{font-family:Inter,system-ui,sans-serif;font-size:11.5px;color:#E3E5F6}
-.st__top button{width:34px;height:34px;border-radius:50%;background:rgba(3,4,31,.4);color:#fff;display:grid;place-items:center}.st__top button .i{width:15px;height:15px}
+.st__top button{width:40px;height:40px;border-radius:50%;background:rgba(3,4,31,.4);color:#fff;display:grid;place-items:center}.st__top button .i{width:15px;height:15px}
 .st__zone{position:absolute;top:70px;bottom:150px;width:50%;z-index:2;-webkit-tap-highlight-color:transparent}.st__zone--prev{left:0;width:34%}.st__zone--next{right:0;width:66%}
 .st__cap{position:absolute;left:18px;right:18px;bottom:18px;z-index:3;display:grid;gap:8px}
 .st__cap small{font-family:Inter,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
@@ -58,11 +58,11 @@
 .cf__name{font-size:26px;letter-spacing:-.03em;line-height:1.05;color:var(--navy)}
 .cf__body p{font-size:13.5px;color:var(--soft);line-height:1.5}
 .cf__buy{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:6px}
-.cf__buy .price b{font-size:22px}
+.cf__buy .price{white-space:nowrap}.cf__buy .price b{font-size:22px}.cf__body{transition:opacity .4s}
 .cf__buy .btn{padding:8px 8px 8px 20px}
 .cf__dots{display:flex;justify-content:center;gap:8px;margin-top:6px}
-.cf__dots button{width:34px;height:4px;border-radius:4px;background:rgba(255,255,255,.25);overflow:hidden;position:relative}
-.cf__dots button::after{content:"";position:absolute;inset:0;background:var(--orange);transform:scaleX(var(--p,0));transform-origin:left}
+.cf__dots button{width:36px;height:24px;position:relative}.cf__dots button::before{content:"";position:absolute;left:0;right:0;top:10px;height:4px;border-radius:4px;background:rgba(255,255,255,.25)}
+.cf__dots button::after{content:"";position:absolute;left:0;right:0;top:10px;height:4px;border-radius:4px;background:var(--orange);transform:scaleX(var(--p,0));transform-origin:left}
 
 /* proof: a deck */
 .cproof{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:center}
@@ -93,7 +93,7 @@
   .chero__sub{font-size:15px;margin:12px 0 18px}
   .chero__bar{max-width:none}
   .vc .bar__fields{gap:8px}.vc .field,.vc .field:nth-child(even),.vc .field:nth-child(n+3){border:1px solid var(--line)}
-  .cf{height:470px}.cf__card{height:450px}
+  .cf{height:470px}.cf__card{height:450px}.cf__card:not(.is-on) .cf__body{opacity:0}.cf__buy .price b{font-size:20px}.cf__buy .btn{padding:6px 6px 6px 16px}
   .deck{height:330px}.deck p{font-size:17px}.deck blockquote{padding:24px}
 }
 @media (prefers-reduced-motion:reduce){.chero__chip{animation:none}}

@@ -116,11 +116,11 @@
   .bh1{font-size:clamp(34px,10.2vw,44px)}
   .bhero__side p{font-size:15px}.bhero__side .ticks{display:none}
   .bpill span:last-child{display:none}
-  .frame{height:min(64svh,440px);border-radius:26px}
+  .frame{height:min(52svh,400px);min-height:300px;border-radius:26px}
   .frame__scenes{left:12px;right:12px;top:12px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}.frame__scenes::-webkit-scrollbar{display:none}
-  .fscene{flex:none;padding:8px 12px}
+  .fscene{flex:none;padding:11px 11px;font-size:11.5px}
   .frame__card{left:12px;right:12px;bottom:12px;max-width:none;justify-content:space-between;padding:12px 12px 12px 16px;border-radius:18px}
-  .frame__card b{font-size:19px}.frame__card .btn{padding:13px 16px}
+  .frame__card b{font-size:19px}.frame__card small{font-size:10.5px;letter-spacing:.1em}.frame__card .btn{padding:14px 16px}
   .frame__pp{display:none}
   .bhero__bar{margin:14px 0 0}
   .xp{flex-direction:column;height:auto;gap:10px}
@@ -129,7 +129,7 @@
   .xp__tab{left:18px;right:18px;bottom:0;top:0;flex-direction:row-reverse;justify-content:space-between;align-items:center}
   .xp__tab b{writing-mode:horizontal-tb;transform:none;font-size:19px}
   .xp__item::after{background:linear-gradient(90deg,rgba(5,7,60,.8),rgba(5,7,60,.3))}
-  .xp__item.is-on::after{background:linear-gradient(180deg,rgba(5,7,60,.05) 20%,rgba(5,7,60,.92) 78%)}
+  .xp__item.is-on::after{background:linear-gradient(180deg,rgba(5,7,60,.12) 0%,rgba(5,7,60,.62) 38%,rgba(5,7,60,.95) 72%)}
   .xp__body{left:18px;bottom:20px;width:calc(100% - 36px)}.xp__name{font-size:32px}.xp__body p{font-size:14px}
   .xp__count{display:none}
   .eve{grid-template-columns:1fr}.eve__ph{min-height:0;aspect-ratio:4/3}
@@ -138,3 +138,5 @@
   .bword span{font-size:14.4vw}
 }
 @media (prefers-reduced-motion:reduce){.mq{animation:none;flex-wrap:wrap;width:auto;justify-content:center;padding-inline:20px}}
+@media (max-width:700px){.frame__card small{font-size:11px}}
+@media (max-width:340px){.bhero__side p{display:none}.bh1{font-size:32px}}

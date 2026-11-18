@@ -482,3 +482,12 @@ body.is-picking .has-bar{z-index:70}
 .row-scroll>.card{flex:0 0 282px;scroll-snap-align:start}
 .arrows{display:flex;gap:10px;flex:none}.arrows button{width:48px;height:48px;border-radius:50%;border:1.5px solid currentColor;display:grid;place-items:center;transition:background .2s,color .2s,transform .2s}.arrows button:hover{transform:scale(1.06)}.arrows .i{width:20px;height:20px}
 @media (max-width:700px){.row-scroll{gap:14px;margin-inline:-20px;padding:4px 20px 16px}.row-scroll>.card{flex:0 0 268px;scroll-snap-align:center}.arrows{display:none}}
+
+/* phones: readable labels, full-size tap targets, nothing cut (audit 19 Nov) */
+.evening__cta small,.price small{white-space:nowrap}
+@media (max-width:700px){
+  .field small,.price small,.panel__label,.dchip small,.evening__cta small,.card__meta{font-size:11px}
+  .field em{white-space:normal;overflow:visible;line-height:1.3}
+  .card__acts .btn{padding:13px 18px}.card__acts .wa{width:40px;height:40px}.heart{width:38px;height:38px}
+  .foot{padding-bottom:104px}
+}
