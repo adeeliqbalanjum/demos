@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V7 B · the frame</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Concept prototype for Al Emirates Tours: a light, calm homepage. The evening plays in a frame, the booking bar sits on it, and everything else slides.">
+<link rel="icon" href="../shared/img/logo.png">
+<link rel="preload" as="image" href="../shared/poster/convoy.jpg">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="b.css">
+</head>
+<body class="vb">
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top"><img src="../shared/img/logo.png" alt="Al Emirates Tours" width="172" height="46"></a>
+  <nav class="nav__links" aria-label="Main"><a href="#four">Tours</a><a href="#booked" data-filter="all">Most booked</a><a href="#evening">The evening</a><a href="#proof">Reviews</a><a href="#questions">Questions</a></nav>
+  <div class="nav__right">
+    <a class="wapill" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+    <button class="btn btn--navy btn--chip btn--s nav__book" data-book>Book a tour <i><svg class="i" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></i></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: words first, then the evening playing in a frame, the booking bar on its edge -->
+<section class="bhero" id="hero">
+  <div class="wrap">
+    <div class="bhero__head">
+      <div>
+        <p class="bpill"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg><b>5.0</b><span class="stars" role="img" aria-label="5 out of 5 stars"></span><span>57 reviews · Dubai operator since 2021</span></p>
+        <h1 class="bh1">Dubai's best days out, <span>booked in a minute.</span></h1>
+      </div>
+      <div class="bhero__side">
+        <p>Desert safaris, dhow cruises, city tours and tickets. We collect you from your hotel and you pay the driver on arrival.</p>
+        <ul class="ticks"><li>No card to hold a seat</li><li>Hotel pickup in Dubai</li></ul>
+      </div>
+    </div>
+    <div class="frame" id="frame">
+      <div class="frame__media" id="frameMedia" aria-hidden="true"></div>
+      <div class="frame__shade" aria-hidden="true"></div>
+      <div class="frame__scenes" id="frameScenes" role="tablist" aria-label="Scenes of the evening"></div>
+      <div class="frame__card" id="frameCard"></div>
+      <button class="frame__pp" id="framePP" aria-label="Pause the film"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button>
+    </div>
+    <div class="bhero__bar has-bar"><form id="bar" onsubmit="return false" aria-label="Book a tour"></form></div>
+  </div>
+</section>
+
+<!-- THE FOUR: panels that open -->
+<section class="sec bsec" id="four">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Start with one of these</p><h2 class="h2">Four days out. <span class="soft">Pick the one that sounds like you.</span></h2></div><p class="xp__count" id="xpCount">01 / 04</p></div>
+    <div class="xp reveal" id="xp" aria-roledescription="carousel" aria-label="The four main tours"></div>
+  </div>
+</section>
+
+<!-- MOST BOOKED -->
+<section class="sec bsec bsec--white" id="booked">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Most booked this month</p><h2 class="h2">The ones people actually pick. <span class="soft">Prices per person, pickup where shown.</span></h2></div>
+    <div class="chips reveal" id="chips" role="tablist" aria-label="Filter tours"></div>
+    <div class="cards" id="cards"></div>
+    <p class="cards__more reveal"><button class="btn btn--ghost" id="moreBtn">Show more tours</button><span id="cardsCount"></span></p>
+  </div>
+</section>
+
+<!-- THE EVENING: one picture, five moments -->
+<section class="sec bsec" id="evening">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">The evening desert safari</p><h2 class="h2">Your evening, <span class="soft">hour by hour.</span></h2></div>
+      <div class="evening__cta"><span><small>from, per person</small><b>AED 99</b></span><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div></div>
+    <div class="eve reveal" id="eve"><div class="eve__ph" id="evePh"></div><ol class="eve__list" id="eveList"></ol></div>
+    <ul class="ticks eve__inc reveal" id="included"></ul>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="sec bsec bsec--white" id="questions">
+  <div class="wrap faq">
+    <div class="head reveal"><p class="eyebrow">Before you book</p><h2 class="h2 h2--s">The four things everyone asks.</h2><p class="lede">Anything else, one message on WhatsApp.</p><a class="btn btn--green btn--s" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a></div>
+    <div class="faq__list reveal" id="faq"></div>
+  </div>
+</section>
+
+<!-- PROOF: the page turns dark here -->
+<section class="sec sec--navy bproof" id="proof">
+  <div class="wrap bproof__head reveal">
+    <div><p class="eyebrow eyebrow--gold">From the people we drove</p><h2 class="h2 h2--light">Guides named by name.</h2></div>
+    <div class="bscore"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg><b>5.0</b><span><span class="stars stars--l" role="img" aria-label="5 out of 5 stars"></span><small>57 Google reviews · 10,000+ guests since 2021</small></span></div>
+  </div>
+  <div class="mq" id="mq1"></div>
+  <div class="mq mq--rev" id="mq2"></div>
+  <div class="wrap bproof__cta reveal"><button class="btn btn--orange btn--chip" data-book>Reserve, pay on arrival <i><svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></i></button><a class="btn btn--glass" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Plan it with us on WhatsApp</a></div>
+</section>
+
+</main>
+<div class="bword" aria-hidden="true"><span>AL EMIRATES</span></div>
+<footer id="foot" data-note="the film in the frame is stock footage standing in for the client's own clips"></footer>
+
+<script src="../shared/data.js"></script>
+<script src="../shared/sprite.js"></script>
+<script src="../shared/core.js"></script>
+<script src="b.js"></script>
+</body>
+</html>

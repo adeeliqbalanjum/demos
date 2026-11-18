@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V7 · three versions</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="shared/img/logo.png">
+<link rel="stylesheet" href="shared/base.css">
+<style>
+body{background:var(--navy);color:#fff;min-height:100svh;display:grid;place-items:center;padding:40px 0}
+.pickv{width:min(1160px,100% - 40px)}
+.pickv img.logo{width:170px;margin-bottom:26px}
+.pickv h1{font-size:clamp(30px,4.4vw,56px);letter-spacing:-.035em;line-height:1.02;max-width:18ch}
+.pickv>p{color:var(--navy-text);max-width:60ch;margin:14px 0 34px;font-size:16px}
+.vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.v{display:flex;flex-direction:column;gap:12px;padding:16px 16px 22px;border-radius:26px;background:var(--navy2);border:1px solid var(--navy-line);transition:transform .35s var(--ease),border-color .3s}
+.v:hover{transform:translateY(-6px);border-color:var(--orange)}
+.v figure{aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#03041F}.v figure img{width:100%;height:100%;object-fit:cover}
+.v small{font-family:Inter,system-ui,sans-serif;font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);padding:0 6px}
+.v b{font-size:24px;letter-spacing:-.02em;padding:0 6px}
+.v span{font-family:Inter,system-ui,sans-serif;font-size:13.5px;color:var(--navy-text);line-height:1.5;padding:0 6px}
+.v i{margin:auto 6px 0;font-style:normal;color:var(--orange);font-weight:700;display:flex;align-items:center;gap:8px}
+@media (max-width:860px){.vgrid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="pickv">
+  <img class="logo" src="shared/img/logo-white.png" alt="Al Emirates Tours">
+  <h1>Three new homepages. Same booking, three different first screens.</h1>
+  <p>Each one is short, built around sliders, and opens the same reserve panel from every Book button. Prototypes: nothing is sent anywhere.</p>
+  <div class="vgrid">
+    <a class="v" href="a-stage/index.html"><figure><img src="shared/img/aet-o-desert-safari.jpg" alt=""></figure><small>Version A</small><b>The stage</b><span>Dark and bold. The four tours are the first screen: a giant word, an arch photo, the booking bar under it. No video, so it is the fastest.</span><i>Open version A</i></a>
+    <a class="v" href="b-frame/index.html"><figure><img src="shared/poster/sunset.jpg" alt=""></figure><small>Version B</small><b>The frame</b><span>Light and calm. The evening plays by itself in a rounded frame, the booking bar sits on its edge, four panels open one by one.</span><i>Open version B</i></a>
+    <a class="v" href="c-stories/index.html"><figure><img src="shared/poster/tanoura.jpg" alt=""></figure><small>Version C</small><b>The stories</b><span>The evening as five phone-style stories beside the booking card. The four tours turn on a carousel, the reviews are a deck.</span><i>Open version C</i></a>
+  </div>
+</div>
+</body>
+</html>

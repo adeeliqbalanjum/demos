@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V7 C · the stories</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Concept prototype for Al Emirates Tours: the evening plays as stories beside the booking card, the four tours turn like a carousel.">
+<link rel="icon" href="../shared/img/logo.png">
+<link rel="preload" as="image" href="../shared/poster/dunes.jpg">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="c.css">
+</head>
+<body class="vc">
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top"><img src="../shared/img/logo-white.png" alt="Al Emirates Tours" width="172" height="47"></a>
+  <nav class="nav__links" aria-label="Main"><a href="#four">Tours</a><a href="#booked" data-filter="all">Most booked</a><a href="#proof">Reviews</a><a href="#plan">Plan with us</a><a href="#questions">Questions</a></nav>
+  <div class="nav__right">
+    <a class="wapill" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+    <button class="btn btn--orange btn--s nav__book" data-book>Book a tour</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: the evening as stories, the booking card beside it -->
+<section class="chero" id="hero">
+  <div class="chero__glow" aria-hidden="true"></div>
+  <div class="wrap chero__grid">
+    <div class="chero__copy">
+      <p class="pill"><span class="stars" role="img" aria-label="5 out of 5 stars"></span> 5.0 on Google · 57 reviews</p>
+      <h1 class="h1">Watch the evening. <br><span>Then book it.</span></h1>
+      <p class="chero__sub">Five short clips, about twenty five seconds. That is the whole desert safari, from the first dune to the fire show. We collect you from your hotel and you pay on arrival.</p>
+      <div class="chero__bar has-bar"><form id="bar" onsubmit="return false" aria-label="Book a tour"></form></div>
+    </div>
+    <div class="chero__play">
+      <span class="chero__ghost chero__ghost--l" aria-hidden="true"></span><span class="chero__ghost chero__ghost--r" aria-hidden="true"></span>
+      <div class="st" id="st" aria-roledescription="carousel" aria-label="The evening desert safari in five clips">
+        <div class="st__media" id="stMedia" aria-hidden="true"></div>
+        <div class="st__shade" aria-hidden="true"></div>
+        <div class="st__bars" id="stBars" aria-hidden="true"></div>
+        <div class="st__top"><i class="st__ava" aria-hidden="true"></i><span><b>Al Emirates Tours</b><small id="stWhen"></small></span><button id="stPP" aria-label="Pause"><svg class="i" aria-hidden="true"><use href="#i-pause"/></svg></button></div>
+        <button class="st__zone st__zone--prev" id="stPrev" aria-label="Previous clip"></button><button class="st__zone st__zone--next" id="stNext" aria-label="Next clip"></button>
+        <div class="st__cap" id="stCap"></div>
+      </div>
+      <div class="chero__chip chero__chip--a"><svg class="i" aria-hidden="true"><use href="#i-map-pin"/></svg><span><b>Hotel pickup</b><small>any hotel in Dubai</small></span></div>
+      <div class="chero__chip chero__chip--b"><svg class="i" aria-hidden="true"><use href="#i-banknote"/></svg><span><b>Pay on arrival</b><small>no card to hold a seat</small></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FOUR: a carousel that turns -->
+<section class="sec cfour" id="four">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow eyebrow--gold">Start with one of these</p><h2 class="h2 h2--light">Four days out. Turn the wheel.</h2></div><div class="arrows" style="color:#fff"><button id="cfPrev" aria-label="Previous tour"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><button id="cfNext" aria-label="Next tour"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button></div></div>
+  </div>
+  <div class="cf" id="cf" aria-roledescription="carousel" aria-label="The four main tours"></div>
+  <div class="cf__dots" id="cfDots"></div>
+</section>
+
+<!-- MOST BOOKED -->
+<section class="sec sec--sand" id="booked">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Most booked this month</p><h2 class="h2">The ones people actually pick.</h2></div><div class="arrows" style="color:var(--navy)"><button id="cPrev" aria-label="Previous tours"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><button id="cNext" aria-label="More tours"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button></div></div>
+    <div class="chips reveal" id="chips" role="tablist" aria-label="Filter tours"></div>
+    <div class="row-scroll" id="cards"></div>
+  </div>
+</section>
+
+<!-- PROOF: a deck of reviews -->
+<section class="sec" id="proof">
+  <div class="wrap cproof">
+    <div class="reveal">
+      <p class="eyebrow">From the people we drove</p><h2 class="h2">Rated 5.0 on Google. Guides named by name.</h2>
+      <div class="cscore"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg><b>5.0</b><span><span class="stars stars--l" role="img" aria-label="5 out of 5 stars"></span><small>57 Google reviews on the public profile "Desert Safari Dubai"</small></span></div>
+      <p class="cproof__n"><strong>10,000+</strong> guests driven since 2021</p>
+    </div>
+    <div class="deck reveal" id="deck" aria-label="Reviews"></div>
+  </div>
+</section>
+
+<!-- PLAN IT FOR ME -->
+<section class="sec sec--flush" id="plan">
+  <div class="wrap">
+    <div class="plan reveal">
+      <div class="plan__copy">
+        <p class="eyebrow eyebrow--gold">Not sure what to pick?</p>
+        <h2 class="h2 h2--light">Say the day you want. <br>Get a plan and a price within the hour.</h2>
+        <p class="lede lede--light">Families, company outings, honeymoons, 30 to 90 day visas, airport transfers. A person answers, not a bot.</p>
+        <p style="margin-top:22px"><a class="btn btn--green" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Message +971 58 132 0909</a></p>
+      </div>
+      <div class="chat" id="chat" aria-hidden="true">
+        <div class="chat__head"><i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg></i><span><b>Al Emirates Tours</b><small>online · replies in minutes</small></span></div>
+        <div class="chat__body">
+          <p class="msg msg--me" data-typed="Hi! 2 adults + 1 child, evening safari on Saturday, pickup at JBR?"></p>
+          <p class="msg" data-typed="Done. Pickup 3:15 PM at your hotel door, 4x4, BBQ dinner and shows included. AED 99 each, pay the driver on arrival."></p>
+          <p class="msg msg--ok" data-typed="Booking confirmed · Saturday · 3 guests · AED 297"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="sec" id="questions">
+  <div class="wrap faq">
+    <div class="head reveal"><p class="eyebrow">Before you book</p><h2 class="h2 h2--s">The four things everyone asks.</h2><p class="lede">Anything else, one message on WhatsApp.</p></div>
+    <div class="faq__list reveal" id="faq"></div>
+  </div>
+</section>
+
+</main>
+<footer id="foot" data-note="the story clips are stock footage standing in for the client's own clips"></footer>
+
+<script src="../shared/data.js"></script>
+<script src="../shared/sprite.js"></script>
+<script src="../shared/core.js"></script>
+<script src="c.js"></script>
+</body>
+</html>

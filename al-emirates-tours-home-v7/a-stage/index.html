@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V7 A · the stage</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Concept prototype for Al Emirates Tours: the four main tours on one screen, with the booking bar under them.">
+<link rel="icon" href="../shared/img/logo.png">
+<link rel="preload" as="image" href="../shared/img/aet-o-desert-safari.jpg">
+<link rel="stylesheet" href="../shared/base.css">
+<link rel="stylesheet" href="a.css">
+</head>
+<body class="va">
+
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top"><img src="../shared/img/logo-white.png" alt="Al Emirates Tours" width="172" height="47"></a>
+  <nav class="nav__links" aria-label="Main"><a href="#booked" data-filter="safari">Desert safari</a><a href="#booked" data-filter="cruise">Cruises</a><a href="#booked" data-filter="private">City tours</a><a href="#booked" data-filter="tickets">Tickets</a><a href="#evening">The evening</a><a href="#questions">Questions</a></nav>
+  <div class="nav__right">
+    <a class="wapill" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+    <button class="btn btn--orange btn--s nav__book" data-book>Book a tour</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- THE STAGE: the four tours on one screen, the booking bar under them -->
+<section class="stage" id="stage" aria-roledescription="carousel" aria-label="The four main tours">
+  <div class="stage__glow" aria-hidden="true"></div>
+  <div class="stage__word" id="stWord" aria-hidden="true"></div>
+  <div class="wrap stage__grid" id="stGrid">
+    <div class="stage__tx" id="stTx"></div>
+    <div class="arch" id="arch"><span class="arch__ring" aria-hidden="true"></span><span class="seal" id="stSeal"><span></span></span>
+      <div class="arch__rate"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg><span><b>5.0</b><span class="stars" role="img" aria-label="5 out of 5 stars"></span><small>57 Google reviews</small></span></div>
+    </div>
+    <aside class="picks" id="picks" aria-label="Choose a tour"></aside>
+  </div>
+  <div class="wrap stage__bar has-bar"><form id="bar" onsubmit="return false" aria-label="Book a tour"></form></div>
+</section>
+
+<!-- MOST BOOKED: one row you slide -->
+<section class="sec sec--sand" id="booked">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Most booked this month</p><h2 class="h2">The ones people actually pick.</h2></div><div class="arrows" style="color:var(--navy)"><button id="cPrev" aria-label="Previous tours"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button><button id="cNext" aria-label="More tours"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button></div></div>
+    <div class="chips reveal" id="chips" role="tablist" aria-label="Filter tours"></div>
+    <div class="row-scroll" id="cards"></div>
+  </div>
+</section>
+
+<!-- THE EVENING -->
+<section class="sec sec--navy" id="evening">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow eyebrow--gold">The evening desert safari</p><h2 class="h2 h2--light">Your evening, hour by hour.</h2><p class="lede lede--light">This is what AED 99 buys. Six and a half hours, door to door, nothing to organise.</p></div>
+      <div class="evening__cta"><span><small>from, per person</small><b>AED 99</b></span><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div></div>
+    <ol class="timeline" id="timeline"></ol>
+    <div class="included reveal"><small>Included</small><ul class="ticks ticks--white" id="included"></ul></div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">From the people we drove</p><h2 class="h2">Rated 5.0 on Google. Guides named by name.</h2></div>
+    <div class="proof">
+      <div class="score reveal"><span class="g"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg></span><b>5.0</b><span class="stars stars--l" role="img" aria-label="5 out of 5 stars"></span><p>57 Google reviews on the public profile "Desert Safari Dubai".</p><div class="score__foot"><strong>10,000+</strong><span>guests driven<br>since 2021</span></div></div>
+      <div class="reviews" id="reviews"></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="sec sec--sand" id="questions">
+  <div class="wrap faq">
+    <div class="head reveal"><p class="eyebrow">Before you book</p><h2 class="h2 h2--s">The four things everyone asks.</h2><p class="lede">Anything else, one message on WhatsApp.</p><a class="btn btn--green btn--s" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a></div>
+    <div class="faq__list reveal" id="faq"></div>
+  </div>
+</section>
+
+</main>
+<footer id="foot" data-note="the photos are the client's own"></footer>
+
+<script src="../shared/data.js"></script>
+<script src="../shared/sprite.js"></script>
+<script src="../shared/core.js"></script>
+<script src="a.js"></script>
+</body>
+</html>
