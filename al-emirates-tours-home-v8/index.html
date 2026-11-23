@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al Emirates Tours · Home V8 · the client's choice</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Concept prototype for Al Emirates Tours: the homepage built from the sections the client chose, with his changes.">
+<meta name="theme-color" content="#05073C">
+<link rel="icon" href="shared/img/favicon.png">
+<link rel="preload" as="image" href="shared/img/v8-hero-desert.jpg">
+<link rel="stylesheet" href="shared/base.css">
+<link rel="stylesheet" href="v8.css">
+</head>
+<body class="v8">
+
+<!-- HEADER: one glass pill. Menu on the left, logo in the middle, language + currency and WhatsApp on the right -->
+<header class="rnav" id="nav">
+  <div class="rnav__left">
+    <button class="rnav__btn" id="menuBtn" aria-label="Open the menu" aria-controls="drawer" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <nav class="rnav__links" aria-label="Main"><a href="#booked" data-filter="all">Tours</a><a href="#book">Book</a><a href="#proof">Reviews</a><a href="#questions">Questions</a></nav>
+  </div>
+  <a class="rnav__logo" href="#top" aria-label="Al Emirates Tours, to the top"><img src="shared/img/logo-official.png" alt="Al Emirates Tours and Travels" width="172" height="47"></a>
+  <div class="rnav__right">
+    <button class="rnav__cur" id="curBtn" aria-label="Language and currency" aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span><b id="curLang">EN</b><i></i><b id="curCode">AED</b></span></button>
+    <a class="wapill" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO: a rounded card with sliding pictures, dots at the bottom left, the action under the card -->
+<section class="rhero" id="hero" aria-roledescription="carousel" aria-label="Our tours">
+  <div class="rhero__card" id="heroCard">
+    <div class="rhero__slides" id="heroSlides" aria-hidden="true"></div>
+    <div class="rhero__shade" aria-hidden="true"></div>
+    <div class="rhero__tx" id="heroTx">
+      <p class="pill"><span class="stars" role="img" aria-label="5 out of 5 stars"></span> 5.0 on Google · 57 reviews</p>
+      <h1 class="h1" id="heroH"></h1>
+      <p class="sub" id="heroP"></p>
+      <div class="cta rhero__cta">
+        <button class="btn btn--orange" id="heroBook" data-book="desert-safari-dubai-in-99-aed"><span>Book now</span><small id="heroFrom"></small></button>
+        <a class="btn btn--glass" href="#book">See dates and prices <svg class="i" aria-hidden="true"><use href="#i-chevrons-down"/></svg></a>
+      </div>
+      <ul class="facts"><li><b>10,000+</b><span>guests driven since 2021</span></li><li><b>Pay on arrival</b><span>no card to hold a seat</span></li><li><b>Hotel pickup</b><span>from any hotel in Dubai</span></li></ul>
+    </div>
+    <div class="rhero__dots" id="heroDots" role="tablist" aria-label="Choose a picture"></div>
+  </div>
+  <div class="rhero__under">
+    <p class="rhero__now" id="heroNow" aria-live="polite"></p>
+    <button class="rhero__go" id="heroGo" data-book="desert-safari-dubai-in-99-aed"><svg class="i" aria-hidden="true"><use href="#i-calendar-days"/></svg> Book now</button>
+  </div>
+</section>
+
+<!-- WHERE: Dubai, Abu Dhabi, Private, Airport -->
+<section class="sec bsec" id="worlds">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Start with a place</p><h2 class="h2">Where do you want to be tonight?</h2><p class="lede">Four ways in, one pickup. Each one filters the tours below.</p></div><a class="btn btn--ghost btn--s" href="#booked" data-filter="all">All tours <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+    <div class="bento" id="bento"></div>
+  </div>
+</section>
+
+<!-- MOST BOOKED -->
+<section class="sec bsec bsec--white" id="booked">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Most booked this month</p><h2 class="h2">The ones people actually pick.</h2><p class="lede">Prices are per person. Hotel pickup is shown on the tours that include it. Tap Book and the reserve panel opens over the page.</p></div>
+    <div class="chips reveal" id="chips" role="tablist" aria-label="Filter tours"></div>
+    <div class="cards" id="cards"></div>
+    <p class="cards__more reveal"><button class="btn btn--ghost" id="moreBtn">Show more tours</button><span id="cardsCount"></span></p>
+  </div>
+</section>
+
+<!-- THE FOUR: panels that open -->
+<section class="sec bsec" id="four">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">Start with one of these</p><h2 class="h2">Four days out. <span class="soft">Pick the one that sounds like you.</span></h2></div><p class="xp__count" id="xpCount">01 / 04</p></div>
+    <div class="xp reveal" id="xp" aria-roledescription="carousel" aria-label="The four main tours"></div>
+  </div>
+</section>
+
+<!-- BOOK IN THREE TAPS -->
+<section class="sec bsec bsec--white has-bar" id="book">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Book in three taps</p><h2 class="h2">Pick the day. We come and get you.</h2><p class="lede">No account and no card to hold a seat. Choose the experience, the date and your guests: the total updates before you commit to anything.</p></div>
+    <form class="reveal reveal--fade" id="bar" onsubmit="return false" aria-label="Book a tour"></form>
+  </div>
+</section>
+
+<!-- THE EVENING, HOUR BY HOUR -->
+<section class="sec bsec" id="evening">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">The evening desert safari</p><h2 class="h2">Your evening, <span class="soft">hour by hour.</span></h2></div>
+      <div class="evening__cta"><span><small>from, per person</small><b data-aed="99">AED 99</b></span><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div></div>
+    <div class="eve reveal" id="eve"><div class="eve__ph" id="evePh"></div><ol class="eve__list" id="eveList"></ol></div>
+    <ul class="ticks eve__inc reveal" id="included"></ul>
+  </div>
+</section>
+
+<!-- WHY US: glass cards over a picture -->
+<section class="why" id="why">
+  <img class="why__bg" src="shared/img/v8-hero-dhow.jpg" alt="" loading="lazy" aria-hidden="true">
+  <div class="wrap">
+    <div class="why__head reveal"><h2 class="h2 h2--light">Why travellers choose Al Emirates Tours</h2><p>A Dubai tour operator since 2021, with more than 10,000 guests driven. Desert safaris, dhow cruises, city tours, tickets and visas: reserved in a minute, confirmed on WhatsApp, paid when the driver arrives.</p></div>
+    <ul class="why__grid">
+      <li class="reveal"><i><svg class="i" aria-hidden="true"><use href="#i-map-pin"/></svg></i><b>Pickup from your hotel</b><span></span><p>Included on safaris and cruises, from any hotel or address in Dubai.</p></li>
+      <li class="reveal"><i><svg class="i" aria-hidden="true"><use href="#i-banknote"/></svg></i><b>Pay on arrival</b><span></span><p>Reserve now and pay the driver in cash, or pay by card online. No card to hold a seat.</p></li>
+      <li class="reveal"><i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg></i><b>A person on WhatsApp</b><span></span><p>One number, 24/7. Your voucher, pickup time and driver's contact arrive there.</p></li>
+      <li class="reveal"><i><svg class="i" aria-hidden="true"><use href="#i-google"/></svg></i><b>Rated 5.0 on Google</b><span></span><p>57 reviews on the public profile, with our guides named by name.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- REVIEWS: a deck -->
+<section class="sec bsec bsec--white" id="proof">
+  <div class="wrap cproof">
+    <div class="reveal">
+      <p class="eyebrow">From the people we drove</p><h2 class="h2">Rated 5.0 on Google. Guides named by name.</h2>
+      <div class="cscore"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg><b>5.0</b><span><span class="stars stars--l" role="img" aria-label="5 out of 5 stars"></span><small>57 Google reviews on the public profile "Desert Safari Dubai"</small></span></div>
+      <p class="cproof__n"><strong>10,000+</strong> guests driven since 2021</p>
+    </div>
+    <div class="deck reveal" id="deck" aria-label="Reviews"></div>
+  </div>
+</section>
+
+<!-- PLAN IT FOR ME: name, WhatsApp number, message; send by WhatsApp or by e-mail -->
+<section class="sec sec--flush bsec--white" id="plan">
+  <div class="wrap">
+    <div class="plan reveal">
+      <div class="plan__copy">
+        <p class="eyebrow eyebrow--gold">Not sure what to pick?</p>
+        <h2 class="h2 h2--light">Say the day you want. <br>Get a plan and a price within the hour.</h2>
+        <p class="lede lede--light">Families, company outings, honeymoons, 30 to 90 day visas, airport transfers. A person answers, not a bot.</p>
+        <form class="pform" id="planForm" onsubmit="return false" novalidate>
+          <label><span>Name</span><input type="text" id="planName" placeholder="Your name" autocomplete="name"></label>
+          <label><span>WhatsApp number</span><input type="tel" id="planTel" placeholder="+971 ..." autocomplete="tel"></label>
+          <label class="pform__msg"><span>Message</span><textarea id="planMsg" rows="3" placeholder="What and when, in your words"></textarea></label>
+          <button class="btn btn--green" type="button" id="planWa"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Send on WhatsApp</button>
+          <button class="btn btn--orange" type="button" id="planMail"><svg class="i" aria-hidden="true"><use href="#i-mail"/></svg> Send by email</button>
+        </form>
+        <p class="plan__note" id="planNote" aria-live="polite">or message +971 58 132 0909 directly</p>
+      </div>
+      <div class="chat" id="chat" aria-hidden="true">
+        <div class="chat__head"><i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg></i><span><b>Al Emirates Tours</b><small>online · replies in minutes</small></span></div>
+        <div class="chat__body">
+          <p class="msg msg--me" data-typed="Hi! 2 adults + 1 child, evening safari on Saturday, pickup at JBR?"></p>
+          <p class="msg" data-typed="Done. Pickup 3:15 PM at your hotel door, 4x4, BBQ dinner and shows included. AED 99 each, pay the driver on arrival."></p>
+          <p class="msg msg--ok" data-typed="Booking confirmed · Saturday · 3 guests · AED 297"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="sec bsec" id="questions">
+  <div class="wrap faq">
+    <div class="head reveal"><p class="eyebrow">Before you book</p><h2 class="h2 h2--s">The four things everyone asks.</h2><p class="lede">Anything else, one message on WhatsApp.</p><a class="btn btn--green btn--s" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a></div>
+    <div class="faq__list reveal" id="faq"></div>
+  </div>
+</section>
+
+</main>
+<footer id="foot"></footer>
+
+<!-- SIDE MENU -->
+<div class="dscrim" id="dScrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Menu" hidden>
+  <div class="drawer__head"><img src="shared/img/logo-official.png" alt="Al Emirates Tours and Travels" width="150" height="41"><button id="dClose" aria-label="Close the menu"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="drawer__body">
+    <div class="dgrid" id="dGrid"></div>
+    <nav class="dlist" aria-label="More">
+      <a href="#booked" data-filter="privatecar">Private tours and transfers <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="https://wa.me/971581320909?text=Hi%2C%20I%20need%20an%20airport%20transfer" target="_blank" rel="noopener">Airport transfer <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="#proof">Reviews <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="#why">About <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="#plan">Contact <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+    </nav>
+    <form class="qb" id="qb" onsubmit="return false" aria-label="Quick booking">
+      <p class="dlabel">Quick booking</p>
+      <label class="qb__f"><i class="ic"><svg class="i" aria-hidden="true"><use href="#i-compass"/></svg></i><span><small>Experience</small><select id="qbTour" aria-label="Experience"></select></span></label>
+      <div class="qb__row">
+        <label class="qb__f"><i class="ic"><svg class="i" aria-hidden="true"><use href="#i-calendar-days"/></svg></i><span><small>Date</small><input type="date" id="qbDate" aria-label="Date"></span></label>
+        <label class="qb__f"><i class="ic"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg></i><span><small>Guests</small><select id="qbGuests" aria-label="Guests"></select></span></label>
+      </div>
+      <button class="btn btn--orange" type="button" id="qbGo">Check availability <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+    </form>
+    <div class="dsel">
+      <div><p class="dlabel">Currency</p><button type="button" data-sheet><b id="dCur">AED</b><span id="dCurName">UAE Dirham</span><svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></div>
+      <div><p class="dlabel">Language</p><button type="button" data-sheet><b>EN</b><span>English</span><svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></div>
+    </div>
+    <div id="dSocial"></div>
+  </div>
+</aside>
+
+<!-- LANGUAGE AND CURRENCY -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="sheet__head"><b id="sheetTitle">Language &amp; currency</b><button id="sClose" aria-label="Close"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <p class="dlabel">Language</p>
+  <div class="lgrid" id="langGrid"></div>
+  <p class="sheet__note" id="langNote" hidden></p>
+  <p class="dlabel">Currency</p>
+  <div class="lgrid" id="curGrid"></div>
+  <p class="sheet__note">Prices in US Dollar and Euro are converted for guidance. You always pay in AED.</p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="shared/data.js"></script>
+<script src="shared/sprite.js"></script>
+<script src="shared/sprite-v8.js"></script>
+<script src="shared/core.js"></script>
+<script src="v8.js"></script>
+</body>
+</html>
