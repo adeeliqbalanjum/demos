@@ -12,24 +12,12 @@ function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('is-on');
 document.addEventListener('click', (e) => { const a = e.target.closest('[data-soon]'); if (a) { e.preventDefault(); toast(a.dataset.soon); } });
 const money = (v, pre, post) => '<span data-aed="' + v + '"' + (pre ? ' data-pre="' + esc(pre) + '"' : '') + (post ? ' data-post="' + esc(post) + '"' : '') + '>' + esc(pre || '') + AED(v) + esc(post || '') + '</span>';
 
-/* ---------- hero: four pictures, each with its own words (the four scenes the client chose from V6, 24 Nov) ----------
-   Each picture carries a time line, a headline, a text and one card: a "what it really looks like" ticket, a price box or two tours. */
-const priceOf = (slug) => (bySlug(slug) || {}).price;
-const ticket = (slug, b, em) => { const t = bySlug(slug); return '<button class="ticket" data-book="' + slug + '"><img src="' + t.img + '" alt="" width="88" height="66"><span><small>What it really looks like</small><b>' + b + '</b><em>' + em + '</em></span><i>' + ICO('arrow-right') + '</i></button>'; };
-const row = (slug, b, s) => '<li><button data-book="' + slug + '"><span><b>' + b + '</b><small>' + s + '</small></span><i>' + money(priceOf(slug), 'from ') + ' ' + ICO('arrow-right') + '</i></button></li>';
+/* ---------- hero: four pictures, the words follow the picture ---------- */
 const SLIDES = [
-  { slug: 'desert-safari-dubai-in-99-aed', img: 'img/v8-film-convoy.jpg', pos: '62% 50%', name: 'Dune bashing', eb: '4:30 PM · Dune bashing', h: 'Tyres deflate. The dunes begin.',
-    p: 'Thirty minutes on the red sand behind the lead car. Your driver is also your guide. Stop at the top, sandboard down, watch the convoy take the next ridge.',
-    box: () => ticket('desert-safari-dubai-in-99-aed', 'Land Cruiser, six seats, hotel pickup', 'included in every evening safari') },
-  { slug: 'desert-safari-with-falcon-photo', img: 'img/v8-film-sunset.jpg', pos: '58% 50%', name: 'Sunset point', eb: '6:05 PM · Sunset point', h: 'The sun goes down while you are on a camel.',
-    p: 'Camel ride, falcon photo, the light turns orange and then gold. This is the picture everyone posts.',
-    box: () => ticket('desert-safari-with-falcon-photo', 'Camel ride and falcon photo', 'Evening safari with falcon photo, ' + money(priceOf('desert-safari-with-falcon-photo'), 'from ')) },
-  { slug: 'desert-safari-dubai-in-99-aed', img: 'img/v8-film-tanoura.jpg', pos: '64% 50%', name: 'Arabian camp', eb: '7:30 PM · Arabian camp', h: 'Dinner under the stars. Three shows.',
-    p: 'BBQ buffet, Arabic coffee and henna, then belly dance, Tanoura and the fire show. Back at your hotel by ten.',
-    box: () => '<div class="offerbox"><div><small>Evening desert safari</small><b>' + money(priceOf('desert-safari-dubai-in-99-aed'), 'from ') + '</b><em>per person · pay on arrival</em></div><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening ' + ICO('arrow-right') + '</button></div>' },
-  { slug: 'dhow-cruise-marina', img: 'img/v8-film-marina.jpg', pos: '50% 50%', name: 'Dubai Marina', eb: 'Another evening · Dubai Marina', h: 'The city looks better from a dhow.',
-    p: 'A wooden boat, string lights, dinner on board and the Marina towers sliding past.',
-    box: () => '<ul class="rows">' + row('dinner-dhow-cruise-canal', 'Dinner Dhow Cruise, Canal', 'Dubai Canal · 3 hours') + row('dhow-cruise-marina', 'Dhow Cruise, Marina', 'Dubai Marina · 3 hours') + '</ul>' },
+  { slug: 'desert-safari-dubai-in-99-aed', img: 'img/v8-hero-desert.jpg', pos: '42% 50%', name: 'Evening desert safari', h: 'Tonight you could be standing in these dunes.', p: 'Desert safaris, dhow cruises, city tours and tickets across the UAE. Pick a date, we collect you from your hotel, you pay the driver on arrival.' },
+  { slug: 'dhow-cruise-marina', img: 'img/v8-hero-dhow.jpg', pos: '40% 50%', name: 'Dhow cruise, Dubai Marina', h: 'Tonight the Marina could slide past your table.', p: 'A lit wooden dhow through Dubai Marina, with dinner and live entertainment on board. Pick a date and pay on arrival.' },
+  { slug: 'dubai-city-tour', img: 'img/v8-hero-dubai.jpg', pos: '50% 50%', name: 'Dubai city tour', h: 'Tomorrow, the whole city in half a day.', p: 'The famous landmarks, the historic quarter and the modern city, with a guide who knows the stories.' },
+  { slug: 'book-abu-dhabi-city-tour', img: 'img/aet-o-abu-dhabi-city-tour.jpg', pos: '50% 50%', name: 'Abu Dhabi city tour', h: 'A full day in the capital, there and back from Dubai.', p: 'The Sheikh Zayed Grand Mosque, the BAPS Hindu Temple and the city sights, in one day by bus.' },
 ].filter((s) => bySlug(s.slug));
 const hSlides = $('#heroSlides'), hDots = $('#heroDots'), hTx = $('#heroTx');
 hSlides.innerHTML = SLIDES.map((s, i) => '<div class="rslide" style="--pos:' + s.pos + '"><img src="' + P(s.img) + '" alt=""' + (i ? ' loading="lazy"' : ' fetchpriority="high"') + ' draggable="false"></div>').join('');
@@ -38,18 +26,18 @@ const slideEls = $$('.rslide', hSlides), dotEls = $$('.rdot', hDots); let hi = -
 function showSlide(i) { const first = hi < 0; hi = i; const s = SLIDES[i], t = bySlug(s.slug);
   slideEls.forEach((el, k) => el.classList.toggle('is-on', k === i));
   dotEls.forEach((el, k) => { el.classList.toggle('is-on', k === i); el.setAttribute('aria-selected', String(k === i)); });
-  hTx.innerHTML = '<p class="eyebrow eyebrow--film">' + esc(s.eb) + '</p><' + (i ? 'h2' : 'h1') + ' class="h1 h1--m">' + esc(s.h) + '</' + (i ? 'h2' : 'h1') + '><p class="sub">' + esc(s.p) + '</p>' + s.box();
-  $('#heroGo').dataset.book = s.slug;
+  $('#heroH').textContent = s.h; $('#heroP').textContent = s.p;
+  $('#heroFrom').innerHTML = money(t.price, 'from ');
+  $('#heroBook').dataset.book = s.slug; $('#heroGo').dataset.book = s.slug;
   $('#heroNow').innerHTML = '<b>' + pad(i + 1) + ' / ' + pad(SLIDES.length) + '</b> · ' + esc(s.name) + '<span> · ' + AED(t.price) + '</span>';
   if (!first) { hTx.classList.remove('is-swap'); void hTx.offsetWidth; hTx.classList.add('is-swap'); } }
-const hc = A.cycle(SLIDES.length, 7500, showSlide);
+const hc = A.cycle(SLIDES.length, 6500, showSlide);
 hDots.addEventListener('click', (e) => { const b = e.target.closest('[data-slide]'); if (b) hc.go(+b.dataset.slide); });
 (function swipe() { const card = $('#heroCard'); let x0 = null, y0 = 0;
   card.addEventListener('pointerdown', (e) => { if (e.target.closest('button,a')) return; x0 = e.clientX; y0 = e.clientY; });
   card.addEventListener('pointerup', (e) => { if (x0 === null) return; const dx = e.clientX - x0, dy = e.clientY - y0; x0 = null; if (Math.abs(dx) > 44 && Math.abs(dx) > Math.abs(dy) * 1.4) hc.go(hi + (dx < 0 ? 1 : -1)); });
   card.addEventListener('pointercancel', () => { x0 = null; }); })();
-let hSeen = true, hHover = false; const hSync = () => hc.pause(!hSeen || hHover || busy());
-hTx.addEventListener('mouseenter', () => { hHover = true; hSync(); }); hTx.addEventListener('mouseleave', () => { hHover = false; hSync(); });
+let hSeen = true; const hSync = () => hc.pause(!hSeen || busy());
 new IntersectionObserver((es) => { hSeen = es[0].isIntersecting; hSync(); }, { threshold: 0.35 }).observe($('#heroCard'));
 showSlide(0);
 
@@ -127,9 +115,7 @@ A.mountFaq($('#faq')); A.mountFoot($('#foot'));
 /* ---------- side menu, with quick booking ---------- */
 const drawer = $('#drawer'), dScrim = $('#dScrim'), menuBtn = $('#menuBtn'); let dLast = null;
 const DCARDS = [['safari', 'Desert Safari', 'img/aet-o-desert-safari.jpg'], ['cruise', 'Dhow Cruises', 'img/aet-o-dhow-cruise.jpg'], ['private', 'City Tours', 'img/aet-o-dubai-city-tour.jpg'], ['abudhabi', 'Abu Dhabi', 'img/aet-o-abu-dhabi-city-tour.jpg']];
-$('#dGrid').innerHTML = DCARDS.map(([k, l, img]) => '<a class="dcard" href="#book" data-booktab="' + k + '"><img src="' + P(img) + '" alt="" loading="lazy"><b>' + l + '</b><small>' + money(low(k), 'from ') + '</small></a>').join('');
-// each card goes to "Book in three taps" and opens the list of that kind of tour there
-document.addEventListener('click', (e) => { const a = e.target.closest('[data-booktab]'); if (a) setTimeout(() => A.openTab(a.dataset.booktab), RM ? 60 : 520); });
+$('#dGrid').innerHTML = DCARDS.map(([k, l, img]) => '<a class="dcard" href="#booked" data-filter="' + k + '"><img src="' + P(img) + '" alt="" loading="lazy"><b>' + l + '</b><small>' + money(low(k), 'from ') + '</small></a>').join('');
 $('#dSocial').innerHTML = A.socialHTML();
 function openDrawer() { dLast = document.activeElement; drawer.hidden = false; dScrim.hidden = false; requestAnimationFrame(() => { drawer.classList.add('is-on'); dScrim.classList.add('is-on'); document.body.classList.add('menu-open'); menuBtn.setAttribute('aria-expanded', 'true'); syncAll(); }); $('#dClose').focus(); }
 function closeDrawer() { if (drawer.hidden) return; drawer.classList.remove('is-on'); if (sheet.hidden) dScrim.classList.remove('is-on'); document.body.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded', 'false'); setTimeout(() => { drawer.hidden = true; if (sheet.hidden) dScrim.hidden = true; }, 450); if (dLast && dLast.focus) dLast.focus(); syncAll(); }
