@@ -24,7 +24,9 @@ const PICKUP = (t) => (t.cat === 'safari' || t.cat === 'cruise') && !/yacht|love
 const PLACE = (t) => /abu dhabi|qasr al watan|al qana|yas |ferrari|warner|seaworld/i.test(t.name) ? 'Abu Dhabi' : /ras al khaimah|jebel jais/i.test(t.name) ? 'Ras Al Khaimah' : /sharjah/i.test(t.name) ? 'Sharjah' : /musandam/i.test(t.name) ? 'Musandam' : 'Dubai';
 TOURS.forEach((t) => { t.place = PLACE(t); t.labels = TOUR_LABELS[t.slug] || []; t.pickup = PICKUP(t); });
 const CATN = { safari: 'Desert safari', cruise: 'Cruise', tickets: 'Tickets', private: 'City tour', visa: 'Visa' };
-const CATIMG = { safari: 'img/aet-t-desert-safari-dubai-in-99-aed.jpg', cruise: 'img/v8-t-dhow-cruise-marina.jpg', tickets: 'img/aet-t-burj-khalifa-at-the-top-tickets.jpg', private: 'img/v8-t-dubai-city-tour.jpg' };
+const CATIMG = { safari: 'img/aet-t-desert-safari-dubai-in-99-aed.jpg', cruise: 'img/v8-t-dhow-cruise-marina.jpg', tickets: 'img/aet-t-burj-khalifa-at-the-top-tickets.jpg', private: 'img/v8-t-dubai-city-tour.jpg', abudhabi: 'img/aet-o-abu-dhabi-city-tour.jpg' };
+/* the booking card has one tab more than the categories: Abu Dhabi (by place), so a menu card can open that list */
+const inTab = (t, k) => k === 'abudhabi' ? t.place === 'Abu Dhabi' : t.cat === k;
 const bySlug = (s) => TOURS.find((t) => t.slug === s);
 const CATS = [['safari', 'Desert safari'], ['cruise', 'Cruises & yachts'], ['tickets', 'Tickets & parks'], ['private', 'City & private tours'], ['visa', 'Visas']];
 const SHORT = { 'desert-safari-dubai-in-99-aed': 'Evening Desert Safari' };
@@ -110,7 +112,7 @@ const fill = (root) => $$('.stars', root || document).forEach((el) => { if (!el.
 let bar = null, fields = [];
 function mountBar(el, opts) {
   opts = opts || {}; bar = el; el.classList.add('bar'); if (opts.up) el.classList.add('bar--up'); if (opts.compact) el.classList.add('bar--compact');
-  el.innerHTML = '<div class="bar__tabs" role="tablist" id="tabs">' + CATS.map(([k, l]) => '<button type="button" class="tab tab--img" role="tab" data-tab="' + k + '">' + (CATIMG[k] ? '<img src="' + P(CATIMG[k]) + '" alt="" width="30" height="30">' : '<i>' + ICO('globe') + '</i>') + l + '</button>').join('') + '</div>' +
+  el.innerHTML = '<div class="bar__tabs" role="tablist" id="tabs">' + CATS.slice(0, 4).concat([['abudhabi', 'Abu Dhabi']], CATS.slice(4)).map(([k, l]) => '<button type="button" class="tab tab--img" role="tab" data-tab="' + k + '">' + (CATIMG[k] ? '<img src="' + P(CATIMG[k]) + '" alt="" width="30" height="30">' : '<i>' + ICO('globe') + '</i>') + l + '</button>').join('') + '</div>' +
     '<div class="bar__fields"><div class="field" data-pop="exp"><button type="button" class="field__btn" aria-haspopup="listbox"><i class="ic">' + ICO('compass') + '</i><span><small>Experience</small><b id="fExp"></b><em id="fExpSub"></em></span></button><div class="pop pop--list" id="popExp" role="listbox"></div></div>' +
     '<div class="field" data-pop="date"><button type="button" class="field__btn" aria-haspopup="dialog"><i class="ic">' + ICO('calendar-days') + '</i><span><small>Date</small><b id="fDate"></b><em id="fDateSub"></em></span></button><div class="pop pop--date" id="popDate"></div></div>' +
     '<div class="field" data-pop="guests"><button type="button" class="field__btn" aria-haspopup="dialog"><i class="ic">' + ICO('users') + '</i><span><small>Guests</small><b id="fGuests"></b><em id="fGuestsSub"></em></span></button><div class="pop pop--guests" id="popGuests"></div></div>' +
@@ -118,7 +120,7 @@ function mountBar(el, opts) {
     '<button type="button" class="btn btn--orange bar__go" id="barGo">' + (opts.go || 'Check availability') + ' ' + ICO('arrow-right') + '</button></div>' +
     '<div class="bar__foot"><ul class="ticks"><li>No card needed to hold your seat</li><li>Pay the driver on arrival, or by card online</li><li class="hide-m">Change the date with one WhatsApp message</li></ul><p class="bar__total"><span id="barGuests"></span> <b id="barTotal"></b></p></div>';
   fields = $$('.field[data-pop]', el);
-  $('#tabs').addEventListener('click', (e) => { const b = e.target.closest('[data-tab]'); if (!b) return; const k = b.dataset.tab; const first = TOURS.filter((t) => t.cat === k)[0]; set({ tab: k, slug: first ? first.slug : S.slug }); openPop('exp'); });
+  $('#tabs').addEventListener('click', (e) => { const b = e.target.closest('[data-tab]'); if (!b) return; openTab(b.dataset.tab); });
   $('#popExp').addEventListener('click', (e) => { const b = e.target.closest('[data-slug]'); if (!b) return; set({ slug: b.dataset.slug }); closePops(); });
   $('#popDate').addEventListener('click', (e) => { const b = e.target.closest('[data-day]'); if (!b) return; set({ date: addDays(+b.dataset.day) }); closePops(); });
   $('#popDate').addEventListener('change', (e) => { if (e.target.id !== 'dateOther' || !e.target.value) return; const p = e.target.value.split('-').map(Number); const d = new Date(p[0], p[1] - 1, p[2]); if (d >= day0) { set({ date: d }); closePops(); } });
@@ -127,6 +129,7 @@ function mountBar(el, opts) {
   $('#barGo').addEventListener('click', () => openPanel());
   render();
 }
+function openTab(k) { const first = TOURS.filter((t) => inTab(t, k))[0]; set({ tab: k, slug: first ? first.slug : S.slug }); openPop('exp'); const b = bar && $('[data-tab="' + k + '"]', bar), box = b && b.parentNode; if (box && box.scrollWidth > box.clientWidth) box.scrollTo({ left: Math.max(0, b.offsetLeft - 16), behavior: RM ? 'instant' : 'smooth' }); }
 function openPop(k) { fields.forEach((f) => f.classList.toggle('is-open', f.dataset.pop === k)); document.body.classList.add('is-picking'); }
 function closePops() { fields.forEach((f) => f.classList.remove('is-open')); document.body.classList.remove('is-picking'); }
 document.addEventListener('click', (e) => { if (!e.target.closest('.pop') && !e.target.closest('.field__btn') && !e.target.closest('[data-tab]')) closePops(); });
@@ -139,7 +142,7 @@ function renderBar() {
   $('#fDate').textContent = dWord(S.date); $('#fDateSub').textContent = t.cat === 'safari' ? 'pickup 3:00 to 3:30 PM' : diffDays(S.date) < 2 ? dShort(S.date) : 'tap to change';
   $('#fGuests').textContent = gWord(); $('#fGuestsSub').textContent = gSplit();
   $('#barGuests').textContent = perPerson() ? gWord() : t.unit; $('#barTotal').textContent = AED(total()) + ' total';
-  $('#popExp').innerHTML = TOURS.filter((x) => x.cat === S.tab).map((x) => '<button type="button" class="opt' + (x.slug === S.slug ? ' is-on' : '') + '" role="option" data-slug="' + x.slug + '"><span>' + esc(nameOf(x)) + '<small>' + [x.dur, x.dest].filter(Boolean).join(' · ') + '</small></span><i>' + AED(x.price) + '</i></button>').join('');
+  $('#popExp').innerHTML = TOURS.filter((x) => inTab(x, S.tab)).map((x) => '<button type="button" class="opt' + (x.slug === S.slug ? ' is-on' : '') + '" role="option" data-slug="' + x.slug + '"><span>' + esc(nameOf(x)) + '<small>' + [x.dur, x.place].filter(Boolean).join(' · ') + '</small></span><i>' + AED(x.price) + '</i></button>').join('');
   let h = '<h4>Next two weeks</h4><div class="days">';
   for (let i = 0; i < 14; i++) { const d = addDays(i); h += '<button type="button" class="day' + (diffDays(S.date) === i ? ' is-on' : '') + '" data-day="' + i + '"><small>' + (i === 0 ? 'Today' : WD[d.getDay()]) + '</small><b>' + d.getDate() + '</b></button>'; }
   $('#popDate').innerHTML = h + '</div><label class="pop__other">Another date <input type="date" id="dateOther" min="' + iso(day0) + '" value="' + iso(S.date) + '"></label>';
@@ -154,10 +157,9 @@ const inFilter = (t, k) => k === 'all' ? true : k === 'dubai' ? t.place === 'Dub
 let saved = []; try { saved = JSON.parse(localStorage.getItem('aet-saved') || '[]'); } catch (e) {}
 const cardHTML = (t, i) => '<article class="card card--v8" style="--i:' + ((i || 0) % 8) + '"><div class="card__ph">' + (t.img ? '<img src="' + t.img + '" alt="' + esc(t.name) + '" loading="lazy" draggable="false">' : '<span class="ph-label">' + esc(t.name) + '</span>')
   + '<span class="rate" aria-label="Rated ' + t.rating + ' out of 5, ' + t.reviews + (t.reviews === 1 ? ' review' : ' reviews') + '">' + ICO('star') + '<b>' + t.rating + '</b><small>(' + t.reviews + ')</small></span>'
-  + (t.save ? '<span class="tag">Save ' + t.save + '%</span>' : '')
-  + '<button class="heart' + (saved.includes(t.slug) ? ' is-on' : '') + '" data-save="' + t.slug + '" aria-label="Save ' + esc(t.name) + '">' + ICO('heart') + '</button></div>'
+  + '<a class="trip" href="#" data-soon="The Tripadvisor link is added when the company sends its Tripadvisor page address" aria-label="On Tripadvisor"><img src="' + P('img/tripadvisor.png') + '" alt="" width="26" height="16" loading="lazy"></a></div>'
   + '<div class="card__body"><p class="card__meta">' + esc(CATN[t.cat] || '') + (t.dur ? ' · ' + t.dur : '') + '</p><h3 class="card__name">' + esc(t.name) + '</h3>'
-  + '<p class="card__tags">' + t.labels.map((k) => '<span class="lab lab--' + k + '">' + ICO(LABELS[k][1]) + LABELS[k][0] + '</span>').join('') + '<span class="lab lab--place">' + ICO('map-pin') + esc(t.place) + '</span></p>'
+  + '<p class="card__tags">' + t.labels.map((k) => '<span class="lab lab--' + k + '">' + ICO(LABELS[k][1]) + LABELS[k][0] + '</span>').join('') + (t.save ? '<span class="lab lab--save">' + ICO('badge-percent') + 'Save ' + t.save + '%</span>' : '') + '<span class="lab lab--place">' + ICO('map-pin') + esc(t.place) + '</span></p>'
   + (t.pickup ? '<p class="card__pick">' + ICO('car') + 'Hotel pickup included</p>' : '')
   + '<div class="card__foot"><p class="price"><small>from, ' + t.unit + '</small><b>' + AED(t.price) + '</b>' + (t.old ? '<s>' + AED(t.old) + '</s>' : '') + '</p><span class="card__acts"><a class="wa" href="' + waLink('Hi, I am interested in ' + t.name) + '" target="_blank" rel="noopener" aria-label="Ask about ' + esc(t.name) + ' on WhatsApp">' + ICO('whatsapp') + '</a><button class="btn btn--navy" data-book="' + t.slug + '">Book</button></span></div></div></article>';
 let cardsCfg = null;
@@ -240,5 +242,5 @@ function cycle(n, ms, onGo) { let i = 0, t = 0, last = performance.now(), paused
   raf = requestAnimationFrame(tick); return api; }
 
 fill(); render();
-return { $, $$, RM, WA, P, TOURS, CATS, bySlug, nameOf, AED, AEDS, CURS, get cur() { return CUR; }, setCurrency, onCurrency(fn) { curListeners.push(fn); }, paint, socialHTML, inFilter, addDays, iso, ICO, STARS, esc, pad, waLink, OFFERS, TIMELINE, INCLUDED, REVIEWS, FAQS, S, set, pick, tour, total, gWord, onRender(fn) { listeners.push(fn); fn(S, tour()); }, mountBar, mountCards, cardHTML, setFilter, openPanel, mountFaq, mountFoot, reveal, fill, stickyAfter, scroller, cycle, panel };
+return { $, $$, RM, WA, P, TOURS, CATS, bySlug, nameOf, AED, AEDS, CURS, get cur() { return CUR; }, setCurrency, onCurrency(fn) { curListeners.push(fn); }, paint, socialHTML, inFilter, openTab, addDays, iso, ICO, STARS, esc, pad, waLink, OFFERS, TIMELINE, INCLUDED, REVIEWS, FAQS, S, set, pick, tour, total, gWord, onRender(fn) { listeners.push(fn); fn(S, tour()); }, mountBar, mountCards, cardHTML, setFilter, openPanel, mountFaq, mountFoot, reveal, fill, stickyAfter, scroller, cycle, panel };
 })();

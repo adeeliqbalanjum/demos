@@ -8,42 +8,35 @@
 <meta name="description" content="Concept prototype for Al Emirates Tours: the homepage built from the sections the client chose, with his changes.">
 <meta name="theme-color" content="#05073C">
 <link rel="icon" href="shared/img/favicon.png">
-<link rel="preload" as="image" href="shared/img/v8-hero-desert.jpg">
+<link rel="preload" as="image" href="shared/img/v8-film-convoy.jpg">
 <link rel="stylesheet" href="shared/base.css">
 <link rel="stylesheet" href="v8.css">
 </head>
 <body class="v8">
 
-<!-- HEADER: one glass pill. Menu on the left, logo in the middle, language + currency and WhatsApp on the right -->
+<!-- HEADER: one glass pill. Phone (client, 25 Nov): logo, language + currency, WhatsApp, menu, in that order.
+     Wide screens (client, 24 Nov): logo left, WhatsApp in the middle, language + currency and the menu on the right. -->
 <header class="rnav" id="nav">
   <div class="rnav__left">
-    <button class="rnav__btn" id="menuBtn" aria-label="Open the menu" aria-controls="drawer" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    <a class="rnav__logo" href="#top" aria-label="Al Emirates Tours, to the top"><img src="shared/img/logo-official.png" alt="Al Emirates Tours and Travels" width="172" height="47"></a>
     <nav class="rnav__links" aria-label="Main"><a href="#booked" data-filter="all">Tours</a><a href="#book">Book</a><a href="#proof">Reviews</a><a href="#questions">Questions</a></nav>
   </div>
-  <a class="rnav__logo" href="#top" aria-label="Al Emirates Tours, to the top"><img src="shared/img/logo-official.png" alt="Al Emirates Tours and Travels" width="172" height="47"></a>
   <div class="rnav__right">
     <button class="rnav__cur" id="curBtn" aria-label="Language and currency" aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span><b id="curLang">EN</b><i></i><b id="curCode">AED</b></span></button>
-    <a class="wapill" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+    <a class="wapill rnav__wa" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+    <button class="rnav__btn" id="menuBtn" aria-label="Open the menu" aria-controls="drawer" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
   </div>
 </header>
 
 <main id="top">
 
-<!-- HERO: a rounded card with sliding pictures, dots at the bottom left, the action under the card -->
+<!-- HERO: a rounded card with sliding pictures (the four V6 scenes), dots at the bottom left, the action under the card -->
 <section class="rhero" id="hero" aria-roledescription="carousel" aria-label="Our tours">
   <div class="rhero__card" id="heroCard">
     <div class="rhero__slides" id="heroSlides" aria-hidden="true"></div>
     <div class="rhero__shade" aria-hidden="true"></div>
-    <div class="rhero__tx" id="heroTx">
-      <p class="pill"><span class="stars" role="img" aria-label="5 out of 5 stars"></span> 5.0 on Google · 57 reviews</p>
-      <h1 class="h1" id="heroH"></h1>
-      <p class="sub" id="heroP"></p>
-      <div class="cta rhero__cta">
-        <button class="btn btn--orange" id="heroBook" data-book="desert-safari-dubai-in-99-aed"><span>Book now</span><small id="heroFrom"></small></button>
-        <a class="btn btn--glass" href="#book">See dates and prices <svg class="i" aria-hidden="true"><use href="#i-chevrons-down"/></svg></a>
-      </div>
-      <ul class="facts"><li><b>10,000+</b><span>guests driven since 2021</span></li><li><b>Pay on arrival</b><span>no card to hold a seat</span></li><li><b>Hotel pickup</b><span>from any hotel in Dubai</span></li></ul>
-    </div>
+    <!-- the words of each picture (time, headline, text, one card) are written by v8.js: the four scenes the client chose from V6 -->
+    <div class="rhero__tx" id="heroTx"></div>
     <div class="rhero__dots" id="heroDots" role="tablist" aria-label="Choose a picture"></div>
   </div>
   <div class="rhero__under">
@@ -92,7 +85,7 @@
     <div class="head head--row reveal"><div><p class="eyebrow">The evening desert safari</p><h2 class="h2">Your evening, <span class="soft">hour by hour.</span></h2></div>
       <div class="evening__cta"><span><small>from, per person</small><b data-aed="99">AED 99</b></span><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div></div>
     <div class="eve reveal" id="eve"><div class="eve__ph" id="evePh"></div><ol class="eve__list" id="eveList"></ol></div>
-    <ul class="ticks eve__inc reveal" id="included"></ul>
+    <div class="inc reveal"><h3 class="inc__h"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>What's included</h3><ul class="inc__list" id="included"></ul></div>
   </div>
 </section>
 
