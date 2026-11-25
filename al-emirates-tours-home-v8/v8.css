@@ -79,6 +79,8 @@ select,textarea{font:inherit;color:inherit}
 .lab--fresh{background:var(--orange-s);color:#B23F00}
 .lab--save{background:#fff;border:1.5px solid var(--navy);color:var(--navy);padding:4.5px 9px 4.5px 6px}
 .lab--save .i{width:15px;height:15px;fill:#0B7A3B;stroke:#fff;stroke-width:2}
+/* 25 Nov (late), the client's note on the card: the sale tag of the reference sits ON the picture, bottom left, where "Save 34%" was circled */
+.card__ph .lab--onph{position:absolute;left:12px;bottom:12px;z-index:2;font-size:12px;box-shadow:0 6px 16px -6px rgba(3,4,31,.55)}
 .trip{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 2px 8px rgba(0,0,0,.28);transition:transform .2s}
 .trip:hover{transform:scale(1.1)}.trip img{width:27px;height:auto;display:block}
 .lab--place{background:#fff;border:1.5px solid var(--navy);color:var(--navy);padding:4.5px 9px 4.5px 7px}.lab--place .i{color:var(--orange)}
@@ -116,7 +118,8 @@ select,textarea{font:inherit;color:inherit}
 .tab--img img,.tab--img>i{flex:none;width:32px;height:32px;border-radius:10px;object-fit:cover}
 .tab--img>i{display:grid;place-items:center;background:var(--orange-s);color:var(--orange);font-style:normal}.tab--img>i .i{width:17px;height:17px}
 .tab--img:hover{background:var(--sand)}
-.tab--img.is-on{background:var(--navy);border-color:var(--navy);color:#fff}
+/* 25 Nov (late): the selected tab in the client's swatch #FFF1E8 (= --orange-s) with an orange line and navy text. Before: background:var(--navy);border-color:var(--navy);color:#fff */
+.tab--img.is-on{background:var(--orange-s);border-color:var(--orange);color:var(--navy);box-shadow:inset 0 0 0 1px var(--orange)}.tab--img.is-on>i{background:#fff}
 
 /* ---------- the evening, hour by hour (from V7 B) ---------- */
 .v8 .evening__cta small{color:var(--mute)}.v8 .evening__cta b{color:var(--navy)}
@@ -184,34 +187,41 @@ select,textarea{font:inherit;color:inherit}
 .foot--box{background:var(--sand);color:var(--navy-text);padding:0 0 120px}
 /* 25 Nov: the client asked for a shade of orange behind the footer. A deep orange, so that white text stays readable (4.5:1 and more);
    the navy tokens are re-pointed inside the box only, nothing outside it changes. Before: background:var(--navy) */
-.fbox{background:linear-gradient(155deg,#CC4700 0%,#B84000 55%,#A63A00 100%);border-radius:30px;padding:clamp(26px,4vw,52px);--navy2:rgba(0,0,0,.16);--navy-line:rgba(255,255,255,.32);--navy-text:#fff;--navy-mute:rgba(255,255,255,.7);--gold:#fff}
-.fbox .fhelp a:first-of-type .i{color:#fff}
-.fbox .fsoc a:hover{background:#fff;border-color:#fff;color:#A63A00}
+/* 25 Nov (late): the client wants to try WHITE behind the footer, and it must still read as a box like the orange one: a white card on the
+   cream page, held by a hairline and a soft shadow with a warm orange glow under it. Text navy, icons in WhatsApp green.
+   The orange box, to go back (swap the next rule for these three lines):
+   .fbox{background:linear-gradient(155deg,#CC4700 0%,#B84000 55%,#A63A00 100%);border-radius:30px;padding:clamp(26px,4vw,52px);--navy2:rgba(0,0,0,.16);--navy-line:rgba(255,255,255,.32);--navy-text:#fff;--navy-mute:rgba(255,255,255,.7);--gold:#fff}
+   .fbox .fhelp a:first-of-type .i{color:#fff}
+   .fbox .fsoc a:hover{background:#fff;border-color:#fff;color:#A63A00} */
+.fbox{background:#fff;border:1px solid rgba(255,90,0,.16);box-shadow:0 1px 2px rgba(5,7,60,.05),0 16px 36px -14px rgba(5,7,60,.14),0 46px 90px -32px rgba(204,71,0,.34);border-radius:30px;padding:clamp(26px,4vw,52px);--navy2:var(--sand);--navy-line:#EBE5DF;--navy-text:#45475F;--navy-mute:#8A8DB8;--fstrong:var(--navy);--ficon:var(--green)}
+.fbox .foot__plate{padding:0;background:none;border-radius:0;margin-bottom:18px}
+.fbox .fsoc a{background:#fff;color:var(--green)}
+.fbox .fsoc a:hover{background:var(--green);border-color:var(--green);color:#fff}
 .fbox__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.7fr);gap:clamp(28px,5vw,64px)}
 .foot__plate{display:inline-block;padding:12px 18px;border-radius:16px;background:#fff;margin-bottom:16px}
 .foot--box .foot__logo{width:168px;margin:0}
 .foot--box .fco>p{max-width:400px;font-size:14.5px;line-height:1.6;color:var(--navy-text)}
 .fco__box{display:grid;gap:6px;max-width:420px;margin-top:18px;padding:16px 18px;border-radius:16px;background:var(--navy2);border:1px solid var(--navy-line)}
-.fco__box b{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.fco__box b{font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--fstrong,#fff)}
 .fco__box span{font-family:Inter,system-ui,sans-serif;font-size:13px;line-height:1.5;color:var(--navy-text)}
-.fco__box em{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;margin-top:6px;padding-top:11px;border-top:1px solid var(--navy-line);font-family:Inter,system-ui,sans-serif;font-style:normal;font-size:12.5px;font-weight:600;color:#fff}
+.fco__box em{display:flex;flex-wrap:wrap;align-items:center;gap:6px 9px;margin-top:6px;padding-top:11px;border-top:1px solid var(--navy-line);font-family:Inter,system-ui,sans-serif;font-style:normal;font-size:12.5px;font-weight:600;color:var(--fstrong,#fff)}
 .fco__box em i{width:3px;height:3px;border-radius:50%;background:var(--navy-mute)}
 .fco__box em u{text-decoration:none;white-space:nowrap}
 .fco__box em .i{width:12px;height:12px;fill:var(--gold);stroke:none;vertical-align:-1px}
 .fsoc{display:flex;gap:10px;margin-top:18px}
-.fsoc a{width:44px;height:44px;border-radius:50%;border:1px solid var(--navy-line);display:grid;place-items:center;color:#fff;transition:background .2s,border-color .2s,transform .2s}
+.fsoc a{width:44px;height:44px;border-radius:50%;border:1px solid var(--navy-line);display:grid;place-items:center;color:var(--fstrong,#fff);transition:background .2s,border-color .2s,transform .2s}
 .fsoc a:hover{background:var(--orange);border-color:var(--orange);transform:translateY(-2px)}.fsoc .i{width:19px;height:19px}
 .facc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr) minmax(0,.7fr) minmax(232px,1.4fr);gap:22px;align-content:start}
 .fgrp,.fgrp[open]{border:0;border-radius:0;padding:0;background:none}
-.fgrp summary{padding:4px 0 14px;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+.fgrp summary{padding:4px 0 14px;font-family:Inter,system-ui,sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--fstrong,#fff)}
 .fgrp summary .i{width:18px;height:18px;transition:transform .3s var(--ease)}.fgrp[open] summary .i{transform:rotate(180deg)}
 .fgrp__in{display:grid;gap:2px;padding-bottom:6px}
-.fgrp__in a{display:flex;align-items:flex-start;gap:12px;padding:7px 0;font-family:Inter,system-ui,sans-serif;font-size:14px;line-height:1.4;color:var(--navy-text);transition:color .2s}.fgrp__in a:hover{color:#fff}
+.fgrp__in a{display:flex;align-items:flex-start;gap:12px;padding:7px 0;font-family:Inter,system-ui,sans-serif;font-size:14px;line-height:1.4;color:var(--navy-text);transition:color .2s}.fgrp__in a:hover{color:var(--fstrong,#fff)}
 .fgrp__in a>span{min-width:0;overflow-wrap:anywhere}
-.fgrp__in a>.i{width:17px;height:17px;margin-top:2px;color:var(--gold)}.fgrp__in a b{display:block;color:#fff;font-weight:700}
+.fgrp__in a>.i{width:17px;height:17px;margin-top:2px;color:var(--ficon,var(--gold))}.fgrp__in a b{display:block;color:var(--fstrong,#fff);font-weight:700}
 .fhelp{display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;margin-top:clamp(24px,3vw,36px);padding-top:24px;border-top:1px solid var(--navy-line);font-family:Inter,system-ui,sans-serif;font-size:14px}
-.fhelp b{font-family:Emirates,system-ui,sans-serif;font-size:18px;color:#fff;margin-right:auto}
-.fhelp a{display:inline-flex;align-items:center;gap:9px;color:#fff}.fhelp a .i{width:18px;height:18px;color:var(--gold)}.fhelp a:first-of-type .i{color:var(--green)}
+.fhelp b{font-family:Emirates,system-ui,sans-serif;font-size:18px;color:var(--fstrong,#fff);margin-right:auto}
+.fhelp a{display:inline-flex;align-items:center;gap:9px;color:var(--fstrong,#fff)}.fhelp a .i{width:18px;height:18px;color:var(--ficon,var(--gold))}.fhelp a:first-of-type .i{color:var(--green)}
 .foot--box .foot__legal{border:0;margin-top:18px;padding:0 10px;color:#6B6B72}
 @media (min-width:901px){.fgrp summary{pointer-events:none;cursor:default}.fgrp summary .i{display:none}}
 
@@ -280,8 +290,10 @@ body.menu-open{overflow:hidden}
   .rnav__logo{margin-left:10px}.rnav__logo img{width:104px}
   /* phone order (client, 25 Nov): logo, currency, WhatsApp, menu. Currency and WhatsApp are the same height (40px) */
   .rnav__cur{height:40px;padding:0 10px;font-size:10.5px;letter-spacing:.04em;gap:0}.rnav__cur .i{display:none}.rnav__cur span{gap:5px}
-  .rnav .wapill{position:relative;left:auto;top:auto;transform:none;flex:none;width:40px;height:40px;padding:0;justify-content:center;background:var(--green);border-color:var(--green)}.rnav .wapill:hover{background:var(--green);transform:none}.rnav .wapill span{display:none}
-  .rnav .wapill .i{width:21px;height:21px;color:#fff}.rnav .wapill__dot{position:absolute;right:-1px;top:-1px;width:11px;height:11px;border:2px solid #fff}
+  /* 25 Nov (late): WhatsApp on phones = the white pill of the wide header without the word: green dot + green mark, 40px high like the currency pill.
+     Before: a 40px green circle with a white mark (width:40px;padding:0;background:var(--green)) */
+  .rnav .wapill{height:40px;padding:0 12px 0 11px;gap:7px}.rnav .wapill:hover{transform:none}.rnav .wapill span{display:none}
+  .rnav .wapill .i{width:20px;height:20px}
   .rhero{padding:8px 10px 0}
   .rhero__card{height:calc(100svh - 70px);min-height:500px;border-radius:28px}
   .rhero__tx{left:18px;right:18px;bottom:54px}
