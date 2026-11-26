@@ -8,11 +8,30 @@
 <meta name="description" content="Concept prototype for Al Emirates Tours: the homepage built from the sections the client chose, with his changes.">
 <meta name="theme-color" content="#05073C">
 <link rel="icon" href="shared/img/favicon.png">
+<link rel="preload" as="image" href="shared/img/logo-loader.png">
 <link rel="preload" as="image" href="shared/img/v8-film-convoy.jpg">
 <link rel="stylesheet" href="shared/base.css">
 <link rel="stylesheet" href="v8.css">
 </head>
 <body class="v8">
+
+<!-- PRELOADER (client, 26 Nov): the opening screen of V4 / V6 is back, with the official logo and the client's welcome text.
+     White, because the logo has black letters. It leaves by itself about three seconds after the page has loaded; a tap skips it.
+     To switch it off: delete this block and the script under it. For checks, ?loader=0 in the address skips it. -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__sun"></div>
+  <img class="loader__logo" src="shared/img/logo-loader.png" alt="" width="760" height="533">
+  <p class="loader__line"><b>Your Dubai adventure starts here!</b> Explore the city's hidden gems, experience thrilling desert safaris, discover iconic attractions, and create unforgettable memories. Let’s make your Dubai journey truly special!</p>
+  <div class="loader__bar"><i></i></div>
+</div>
+<script>
+(function () { var l = document.getElementById('loader'), t0 = Date.now(), MIN = 3200, gone = false;
+  if (/[?&]loader=0/.test(location.search)) { l.parentNode.removeChild(l); return; }
+  function out() { if (gone) return; gone = true; l.classList.add('is-done'); setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 1000); }
+  function ready() { setTimeout(out, Math.max(0, MIN - (Date.now() - t0))); }
+  if (document.readyState === 'complete') ready(); else window.addEventListener('load', ready);
+  setTimeout(out, 8000); l.addEventListener('click', out); })();
+</script>
 
 <!-- HEADER: one glass pill. Phone (client, 25 Nov): logo, language + currency, WhatsApp, menu, in that order.
      Wide screens (client, 24 Nov): logo left, WhatsApp in the middle, language + currency and the menu on the right. -->
@@ -36,7 +55,11 @@
     <div class="rhero__slides" id="heroSlides" aria-hidden="true"></div>
     <div class="rhero__shade" aria-hidden="true"></div>
     <!-- the words of each picture (time, headline, text, one card) are written by v8.js: the four scenes the client chose from V6 -->
-    <div class="rhero__tx" id="heroTx"></div>
+    <div class="rhero__tx">
+      <!-- client, 26 Nov: the Google rating pill of V5 / V6, above the words of every picture; it leads to the reviews -->
+      <a class="pill rhero__rate" href="#proof" aria-label="Rated 5.0 on Google from 57 reviews. Read the reviews"><span class="stars" aria-hidden="true"></span> 5.0 on Google · 57 reviews</a>
+      <div class="rhero__sw" id="heroTx"></div>
+    </div>
     <div class="rhero__dots" id="heroDots" role="tablist" aria-label="Choose a picture"></div>
   </div>
   <div class="rhero__under">

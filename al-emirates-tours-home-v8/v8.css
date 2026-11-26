@@ -34,7 +34,10 @@ select,textarea{font:inherit;color:inherit}
 .rslide img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,50% 50%);transform:scale(1.02);transition:transform 9s linear}.rslide.is-on img{transform:scale(1.1)}
 .rhero__shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,4,31,.42) 0%,rgba(3,4,31,.04) 20%,rgba(3,4,31,.12) 36%,rgba(3,4,31,.7) 64%,rgba(3,4,31,.9) 100%)}
 .rhero__tx{position:absolute;left:clamp(20px,5vw,72px);right:clamp(20px,5vw,72px);bottom:clamp(58px,9vh,84px);max-width:780px}
-.rhero__tx.is-swap>*{animation:heroIn .7s var(--ease) both}.rhero__tx.is-swap>.sub{animation-delay:.07s}.rhero__tx.is-swap>:last-child{animation-delay:.14s}
+/* 26 Nov: the words that change with the picture sit in .rhero__sw; the rating pill above them stays still. Before: .rhero__tx.is-swap>* */
+.rhero__sw.is-swap>*{animation:heroIn .7s var(--ease) both}.rhero__sw.is-swap>.sub{animation-delay:.07s}.rhero__sw.is-swap>:last-child{animation-delay:.14s}
+.rhero__rate{margin-bottom:16px;gap:9px;padding:8px 14px 8px 12px;background:rgba(5,7,60,.38);border-color:rgba(255,255,255,.32);color:#fff;white-space:nowrap;transition:background .2s,border-color .2s}
+.rhero__rate:hover{background:rgba(5,7,60,.6);border-color:rgba(255,255,255,.55)}.rhero__rate .stars{vertical-align:0}
 @keyframes heroIn{from{opacity:0;transform:translateY(14px)}}
 .rhero__tx .h1{max-width:17ch;text-shadow:0 2px 30px rgba(3,4,31,.45);text-wrap:balance}
 .rhero__tx .sub{max-width:54ch}
@@ -313,6 +316,7 @@ body.menu-open{overflow:hidden}
   .rhero__tx .h1{font-size:clamp(27px,8.2vw,38px);line-height:1.05}
   .rhero__tx .sub{font-size:14.5px;margin-top:10px}
   .rhero__tx .eyebrow{margin-bottom:10px;font-size:11.5px;letter-spacing:.16em}
+  .rhero__rate{margin-bottom:12px;font-size:12.5px;padding:7px 12px 7px 10px}
   .rhero__tx .ticket,.rhero__tx .offerbox,.rhero__tx .rows{margin-top:14px}
   .rhero__tx .offerbox{width:100%;justify-content:space-between}
   .rhero__under{padding:4px 8px 0}.rhero__now span{display:none}
@@ -351,5 +355,19 @@ body.menu-open{overflow:hidden}
 }
 @media (max-width:384px){.rnav__cur #curLang,.rnav__cur span i{display:none}.rnav__logo{margin-left:8px}.rnav__logo img{width:92px}}
 @media (max-width:370px){.evening__cta{flex-wrap:wrap;gap:12px}.evening__cta .btn{flex:1 1 100%}}
+/* 26 Nov: on the smallest phones the rating pill must stay clear of the header on the picture with two tours */
+@media (max-width:339px){.rhero__tx .eyebrow{font-size:10.5px;letter-spacing:.08em;margin-bottom:8px}.rhero__rate{margin-bottom:8px}.rhero__tx .rows{margin-top:10px}}
 @media (max-width:339px){.rnav__logo img{width:84px}.rnav__cur{padding:0 7px}.rhero__tx .sub{display:none}.pform{grid-template-columns:1fr}.pform__msg{grid-column:auto}}
 @media (prefers-reduced-motion:reduce){.rslide img{transform:none!important}}
+
+/* ---------- preloader (client, 26 Nov): the V4 / V6 opening screen, now white with the official logo and the welcome text ----------
+   Before (shared/base.css): navy screen, white logo 140px, one line "Stepping out of the car at 4:15 PM", gold bar */
+.loader{z-index:300;background:#fff;color:var(--navy);place-items:initial;justify-items:center;align-content:center;gap:20px;padding:24px 24px 15vh;cursor:pointer;transition:opacity .8s var(--ease),visibility .8s}
+.loader__sun{opacity:.85}
+.loader__logo{width:clamp(190px,26vw,290px);height:auto;animation:heroIn .8s var(--ease) both}
+.loader__line{max-width:46ch;font-family:Inter,system-ui,sans-serif;font-size:clamp(14.5px,1.2vw,16.5px);font-weight:500;letter-spacing:0;line-height:1.6;color:var(--soft);text-wrap:pretty;animation:heroIn .8s var(--ease) .12s both}
+.loader__line b{display:block;margin-bottom:8px;font-family:Emirates,"Plus Jakarta Sans",system-ui,sans-serif;font-size:clamp(21px,2.5vw,30px);font-weight:700;letter-spacing:-.02em;line-height:1.2;color:var(--navy);text-wrap:balance}
+.loader__bar{background:rgba(5,7,60,.12);margin-top:4px}.loader__bar i{background:var(--orange);animation-duration:3s}
+@media (max-height:560px){.loader{gap:12px;padding-bottom:9vh}.loader__logo{width:132px}.loader__line{font-size:13px;line-height:1.5}.loader__line b{font-size:19px;margin-bottom:4px}.loader__sun{bottom:-52vmax}}
+/* without the script the screen still leaves by itself */
+@media (prefers-reduced-motion:no-preference){.loader{animation:loaderOut .8s 9s forwards}}@keyframes loaderOut{to{opacity:0;visibility:hidden}}
