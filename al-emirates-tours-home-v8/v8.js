@@ -165,4 +165,6 @@ function syncAll() { hSync(); xSync(); eSync(); }
 new MutationObserver(syncAll).observe(document.body, { attributes: true, attributeFilter: ['class'] });
 A.fill(); A.reveal(); A.paint(); A.stickyAfter($('#hero'));
 const nav = $('#nav'); const onScroll = () => nav.classList.toggle('is-solid', scrollY > 40); addEventListener('scroll', onScroll, { passive: true }); onScroll();
+/* 27 Nov 2026: a link from the tour page can ask for a filter (?f=safari) or a booking list (?tab=cruise) */
+(function () { const q = new URLSearchParams(location.search), f = q.get('f'), tab = q.get('tab'); if (f) A.setFilter(f); if (tab && /^(safari|cruise|tickets|private|abudhabi|visa)$/.test(tab)) setTimeout(() => A.openTab(tab), 700); })();
 })();

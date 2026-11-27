@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desert Safari Dubai in 99 AED · Al Emirates Tours · tour page concept</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Concept prototype for Al Emirates Tours: the tour page in the look of Home V8, with the real details of the 99 AED evening desert safari.">
+<meta name="theme-color" content="#05073C">
+<link rel="icon" href="shared/img/favicon.png">
+<link rel="preload" as="image" href="shared/img/v8-hero-desert.jpg">
+<link rel="stylesheet" href="shared/base.css">
+<link rel="stylesheet" href="v8.css">
+<link rel="stylesheet" href="tour.css">
+</head>
+<body class="v8 tourp">
+
+<!-- TOUR PAGE (27 Nov 2026): the page a visitor opens from a tour card. Built in the look the client settled on in Home V8:
+     glass header, rounded picture card, the reference-style labels, the green "included" box, #FFF1E8 for what is selected,
+     the white footer box. Every fact on it is from the live page /to_book/desert-safari-dubai-in-99-aed/ (read 27 Nov 2026).
+     No preloader here: it is the opening screen of the site, not of every page. -->
+
+<header class="rnav" id="nav">
+  <div class="rnav__left">
+    <a class="rnav__logo" href="index.html" aria-label="Al Emirates Tours, home"><img src="shared/img/logo-official.png" alt="Al Emirates Tours and Travels" width="172" height="47"></a>
+    <nav class="rnav__links" aria-label="Main"><a href="index.html#booked">Tours</a><a href="#buy">Book</a><a href="#proof">Reviews</a><a href="#questions">Questions</a></nav>
+  </div>
+  <div class="rnav__right">
+    <button class="rnav__cur" id="curBtn" aria-label="Language and currency" aria-haspopup="dialog"><svg class="i" aria-hidden="true"><use href="#i-globe"/></svg><span><b id="curLang">EN</b><i></i><b id="curCode">AED</b></span></button>
+    <a class="wapill rnav__wa" href="https://wa.me/971581320909" target="_blank" rel="noopener" aria-label="Chat on WhatsApp, we are online"><i class="wapill__dot"></i><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>WhatsApp</span></a>
+    <button class="rnav__btn" id="menuBtn" aria-label="Open the menu" aria-controls="drawer" aria-expanded="false"><svg class="i" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+
+<div class="wrap tgrid">
+
+  <!-- PICTURES: one rounded card with sliding pictures, dots at the bottom left (the home hero's look). Swipe on a phone,
+       arrows on a wide screen. A tap opens the picture large. On a wide screen the booking card stands beside it from the top. -->
+  <section class="tgalw" aria-label="Photos of this tour">
+    <div class="tgal" id="gal">
+      <div class="tgal__track" id="galTrack"></div>
+      <button class="tgal__nav tgal__nav--p" id="galPrev" type="button" aria-label="Previous photo"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+      <button class="tgal__nav tgal__nav--n" id="galNext" type="button" aria-label="Next photo"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+      <div class="tgal__dots" id="galDots" aria-hidden="true"></div>
+      <button class="tgal__all" id="galAll" type="button"><svg class="i" aria-hidden="true"><use href="#i-image"/></svg><span class="tgal__all-w" id="galAllW"></span><b class="tgal__all-n" id="galNow"></b></button>
+    </div>
+  </section>
+
+  <!-- NAME, LABELS, RATING, FACTS -->
+  <section class="tlead" id="lead">
+    <nav class="tcrumb" aria-label="You are here"><a href="index.html">Home</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><a href="index.html?f=safari#booked">Desert safari</a><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg><b id="crumbName"></b></nav>
+    <p class="card__tags" id="tLabels"></p>
+    <h1 class="th1" id="tName"></h1>
+    <p class="tmeta">
+      <a class="trate" href="#proof" aria-label="Rated 5.0 on Google from 57 reviews. Read the reviews"><svg class="i trate__g" aria-hidden="true"><use href="#i-google"/></svg><span class="stars" aria-hidden="true"></span><b>5.0</b> · 57 reviews</a>
+      <a class="trip trip--inline" href="#" data-soon="The Tripadvisor link is added when the company sends its Tripadvisor page address" aria-label="On Tripadvisor"><img src="shared/img/tripadvisor.png" alt="" width="26" height="16"></a>
+      <button class="tshare" id="tShare" type="button"><svg class="i" aria-hidden="true"><use href="#i-send"/></svg><span>Share</span></button>
+    </p>
+    <!-- phones and tablets: the price and a Book button in the first screen (on wide screens the booking card stands beside the text) -->
+    <div class="tbuyrow">
+      <p class="price"><small>from, per person</small><b id="rowPrice"></b><s id="rowOld"></s></p>
+      <a class="btn btn--orange" href="#buy">Book now <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+    </div>
+    <ul class="tfacts" id="tFacts"></ul>
+  </section>
+
+  <!-- THE BOOKING CARD: beside the text on wide screens (it follows the page), after the facts on phones -->
+  <aside class="tbuy" id="buy" aria-label="Reserve this tour">
+    <div class="tbuy__top">
+      <p class="price"><small>from, per person</small><b id="buyPrice"></b><s id="buyOld"></s></p>
+      <span id="buySave"></span>
+    </div>
+    <p class="tbuy__label">Date</p>
+    <div class="datechips" id="buyDates"></div>
+    <p class="tbuy__label">Guests</p>
+    <div class="stepper"><span><b>Adults</b></span><span class="ctl"><button type="button" data-step="adults" data-by="-1" aria-label="Fewer adults"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button><b id="buyAdults">2</b><button type="button" class="plus" data-step="adults" data-by="1" aria-label="More adults"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></button></span></div>
+    <div class="stepper"><span><b>Children</b><small>from 3 years</small></span><span class="ctl"><button type="button" data-step="children" data-by="-1" aria-label="Fewer children"><svg class="i" aria-hidden="true"><use href="#i-minus"/></svg></button><b id="buyChildren">0</b><button type="button" class="plus" data-step="children" data-by="1" aria-label="More children"><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></button></span></div>
+    <label class="tbuy__addon"><input type="checkbox" id="buyAddon"><span>Add a quad bike, 30 minutes</span><em id="buyAddonPrice"></em></label>
+    <p class="tbuy__pick"><svg class="i" aria-hidden="true"><use href="#i-car"/></svg><span>Pickup by 4x4 from any point in Dubai, 3:00 to 3:30 PM. The time moves with the sunset.</span></p>
+    <div class="tbuy__total"><span id="buyTotalLabel"></span><b id="buyTotal"></b></div>
+    <button class="btn btn--orange" type="button" data-book>Reserve, pay on arrival <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+    <a class="btn btn--wa" id="buyWa" href="https://wa.me/971581320909" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a>
+    <ul class="ticks"><li>No card needed to hold your seat</li><li>Free cancellation up to 24 hours before pickup</li><li>Voucher and driver's contact on WhatsApp</li></ul>
+  </aside>
+
+  <div class="tbody">
+
+    <nav class="chips tnav" id="tNav" aria-label="On this page"></nav>
+
+    <section class="tsec tsec--first" id="about">
+      <p class="eyebrow">The evening desert safari</p>
+      <h2 class="h2">The whole desert evening, <span class="soft">from <span data-aed="99">AED 99</span>.</span></h2>
+      <p class="lede">Experience the magic of the Arabian desert without breaking the bank. Our special Desert Safari Dubai in 99 AED package offers you the ultimate adventure at an unbeatable price: perfect for travellers on a budget who want a full desert experience in Dubai.</p>
+      <ul class="thl" id="tHl"></ul>
+    </section>
+
+    <section class="tsec" id="evening">
+      <p class="eyebrow">What happens when</p>
+      <h2 class="h2">Your evening, <span class="soft">hour by hour.</span></h2>
+      <div class="eve" id="eve"><div class="eve__ph" id="evePh"></div><ol class="eve__list" id="eveList"></ol></div>
+    </section>
+
+    <section class="tsec" id="included">
+      <p class="eyebrow">In the price</p>
+      <h2 class="h2">What is in the price, <span class="soft">and what is not.</span></h2>
+      <div class="tinc2">
+        <div class="inc"><h3 class="inc__h"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>What's included</h3><ul class="inc__list" id="incYes"></ul></div>
+        <div class="inc inc--no"><h3 class="inc__h"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg>What's not included</h3><ul class="inc__list" id="incNo"></ul></div>
+      </div>
+    </section>
+
+    <section class="tsec" id="addons">
+      <p class="eyebrow">Make it louder</p>
+      <h2 class="h2">Add a quad bike or a dune buggy.</h2>
+      <p class="lede">Upgrade on the spot or add it now. Safety gear and instructions from our instructor come with every ride.</p>
+      <div class="tadds" id="tAdds"></div>
+    </section>
+
+    <section class="tsec" id="know">
+      <p class="eyebrow">Good to know</p>
+      <h2 class="h2">Before you go.</h2>
+      <ul class="tknow" id="tKnow"></ul>
+    </section>
+
+    <section class="tsec" id="questions">
+      <p class="eyebrow">Before you book</p>
+      <h2 class="h2">The questions guests ask about this safari.</h2>
+      <div class="faq__list tfaq" id="tFaq"></div>
+      <p class="tfaq__more">Anything else? <a class="btn btn--green btn--s" href="https://wa.me/971581320909?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Desert%20Safari%20Dubai%20in%2099%20AED" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#i-whatsapp"/></svg> Ask on WhatsApp</a></p>
+    </section>
+
+    <!-- the long text of the current page stays on the page (search engines read it), folded away for the visitor -->
+    <section class="tsec" id="guide">
+      <details class="tguide">
+        <summary>Read the full guide to this safari<i></i></summary>
+        <div class="tguide__in" id="tGuide"></div>
+      </details>
+    </section>
+
+  </div>
+</div>
+
+<!-- REVIEWS: the score and the deck of the home page -->
+<section class="sec bsec bsec--white tfull" id="proof">
+  <div class="wrap cproof">
+    <div class="reveal">
+      <p class="eyebrow">From the people we drove</p><h2 class="h2">Rated 5.0 on Google. Guides named by name.</h2>
+      <div class="cscore"><svg class="i" aria-hidden="true"><use href="#i-google"/></svg><b>5.0</b><span><span class="stars stars--l" role="img" aria-label="5 out of 5 stars"></span><small>57 Google reviews on the public profile "Desert Safari Dubai"</small></span></div>
+      <p class="cproof__n"><strong>10,000+</strong> guests driven since 2021</p>
+    </div>
+    <div class="deck reveal" id="deck" aria-label="Reviews"></div>
+  </div>
+</section>
+
+<!-- MORE SAFARIS: the tour cards of the home page -->
+<section class="sec bsec" id="also">
+  <div class="wrap">
+    <div class="head head--row reveal"><div><p class="eyebrow">More desert safaris</p><h2 class="h2">Same desert, a different evening.</h2></div><a class="btn btn--ghost btn--s" href="index.html?f=safari#booked">All desert safaris <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></div>
+    <div class="cards" id="alsoCards"></div>
+  </div>
+</section>
+
+</main>
+<footer id="foot"></footer>
+
+<!-- SIDE MENU (the same as on the home page; its links lead back to the home page) -->
+<div class="dscrim" id="dScrim" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Menu" hidden>
+  <div class="drawer__head"><img src="shared/img/logo-official.png" alt="Al Emirates Tours and Travels" width="150" height="41"><button id="dClose" aria-label="Close the menu"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="drawer__body">
+    <div class="dgrid" id="dGrid"></div>
+    <nav class="dlist" aria-label="More">
+      <a href="index.html">Home <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="index.html?f=privatecar#booked">Private tours and transfers <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="https://wa.me/971581320909?text=Hi%2C%20I%20need%20an%20airport%20transfer" target="_blank" rel="noopener">Airport transfer <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="#proof">Reviews <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="index.html#why">About <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+      <a href="index.html#plan">Contact <svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></a>
+    </nav>
+    <form class="qb" id="qb" onsubmit="return false" aria-label="Quick booking">
+      <p class="dlabel">Quick booking</p>
+      <label class="qb__f"><i class="ic"><svg class="i" aria-hidden="true"><use href="#i-compass"/></svg></i><span><small>Experience</small><select id="qbTour" aria-label="Experience"></select></span></label>
+      <div class="qb__row">
+        <label class="qb__f"><i class="ic"><svg class="i" aria-hidden="true"><use href="#i-calendar-days"/></svg></i><span><small>Date</small><input type="date" id="qbDate" aria-label="Date"></span></label>
+        <label class="qb__f"><i class="ic"><svg class="i" aria-hidden="true"><use href="#i-users"/></svg></i><span><small>Guests</small><select id="qbGuests" aria-label="Guests"></select></span></label>
+      </div>
+      <button class="btn btn--orange" type="button" id="qbGo">Check availability <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+    </form>
+    <div class="dsel">
+      <div><p class="dlabel">Currency</p><button type="button" data-sheet><b id="dCur">AED</b><span id="dCurName">UAE Dirham</span><svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></div>
+      <div><p class="dlabel">Language</p><button type="button" data-sheet><b>EN</b><span>English</span><svg class="i" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></div>
+    </div>
+    <div id="dSocial"></div>
+  </div>
+</aside>
+
+<!-- LANGUAGE AND CURRENCY -->
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="sheet__head"><b id="sheetTitle">Language &amp; currency</b><button id="sClose" aria-label="Close"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <p class="dlabel">Language</p>
+  <div class="lgrid" id="langGrid"></div>
+  <p class="sheet__note" id="langNote" hidden></p>
+  <p class="dlabel">Currency</p>
+  <div class="lgrid" id="curGrid"></div>
+  <p class="sheet__note">Prices in US Dollar and Euro are converted for guidance. You always pay in AED.</p>
+</div>
+
+<!-- A PICTURE, LARGE -->
+<div class="tlb" id="lb" role="dialog" aria-modal="true" aria-label="Photos" hidden>
+  <div class="tlb__bar"><b id="lbCount"></b><button id="lbClose" type="button" aria-label="Close the photos"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="tlb__stage" id="lbStage">
+    <button class="tlb__nav tlb__nav--p" id="lbPrev" type="button" aria-label="Previous photo"><svg class="i" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+    <img id="lbImg" alt="">
+    <button class="tlb__nav tlb__nav--n" id="lbNext" type="button" aria-label="Next photo"><svg class="i" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+  </div>
+  <p class="tlb__cap" id="lbCap"></p>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="shared/data.js"></script>
+<script src="shared/sprite.js"></script>
+<script src="shared/sprite-v8.js"></script>
+<script src="shared/sprite-tour.js"></script>
+<script src="shared/core.js"></script>
+<script src="tour.js"></script>
+</body>
+</html>

@@ -27,6 +27,8 @@
 <script>
 (function () { var l = document.getElementById('loader'), t0 = Date.now(), MIN = 3200, gone = false;
   if (/[?&]loader=0/.test(location.search)) { l.parentNode.removeChild(l); return; }
+  /* 27 Nov: coming from another page of this site (the tour page) is not an opening: no preloader. A fresh visit or a reload shows it. */
+  try { var nt = (performance.getEntriesByType('navigation')[0] || {}).type, here = location.href.replace(/[^\/]*([?#].*)?$/, ''); if (nt !== 'reload' && document.referrer && document.referrer.indexOf(here) === 0 && document.referrer.split(/[?#]/)[0] !== location.href.split(/[?#]/)[0]) { l.parentNode.removeChild(l); return; } } catch (e) {}
   function out() { if (gone) return; gone = true; l.classList.add('is-done'); setTimeout(function () { if (l.parentNode) l.parentNode.removeChild(l); }, 1000); }
   function ready() { setTimeout(out, Math.max(0, MIN - (Date.now() - t0))); }
   if (document.readyState === 'complete') ready(); else window.addEventListener('load', ready);
@@ -109,6 +111,8 @@
       <div class="evening__cta"><span><small>from, per person</small><b data-aed="99">AED 99</b></span><button class="btn btn--orange" data-book="desert-safari-dubai-in-99-aed">Book this evening <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></button></div></div>
     <div class="eve reveal" id="eve"><div class="eve__ph" id="evePh"></div><ol class="eve__list" id="eveList"></ol></div>
     <div class="inc reveal"><h3 class="inc__h"><svg class="i" aria-hidden="true"><use href="#i-check"/></svg>What's included</h3><ul class="inc__list" id="included"></ul></div>
+    <!-- 27 Nov: the way to the tour page -->
+    <p class="eve__more reveal"><a class="btn btn--ghost btn--s" href="tour.html">All details of this safari <svg class="i" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></p>
   </div>
 </section>
 

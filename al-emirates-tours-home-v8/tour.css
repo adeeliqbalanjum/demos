@@ -1,0 +1,165 @@
+/* Al Emirates Tours · tour page (27 Nov 2026). Loads after shared/base.css and v8.css: the header, labels, chips, the evening,
+   the green "included" box, the review deck, the tour cards, the footer box and the side menu are the home page's own styles.
+   This file only adds what a tour page needs: the picture card, the name block, the facts, the booking card, the red
+   "not included" box, add-ons, good to know, the large picture. Phones first. */
+.tourp main{display:block}
+
+/* ---------- pictures: one rounded card (like the home hero). Wide: one large + four small. Phone: a strip to swipe, dots bottom left ---------- */
+.tgalw{position:relative;z-index:6;margin-inline:-12px;padding:10px 0 0}
+.tgal{position:relative;border-radius:30px;overflow:hidden;background:var(--navy);isolation:isolate}
+.tgal::before{content:"";position:absolute;inset:0 0 auto 0;height:120px;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(3,4,31,.38),rgba(3,4,31,0))}
+.tgal::after{content:"";position:absolute;inset:auto 0 0 0;height:96px;z-index:1;pointer-events:none;background:linear-gradient(0deg,rgba(3,4,31,.58),rgba(3,4,31,0))}
+.tgal__track{display:flex;height:min(54svh,460px);min-height:280px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.tgal__track::-webkit-scrollbar{display:none}
+.tgal__it{position:relative;display:block;flex:0 0 100%;min-width:0;padding:0;overflow:hidden;background:#12154f;cursor:zoom-in;scroll-snap-align:center;scroll-snap-stop:always}
+.tgal__it img{width:100%;height:100%;object-fit:cover}
+.tgal__it:focus-visible{outline-offset:-4px}
+.tgal__dots{position:absolute;left:18px;bottom:20px;z-index:2;display:flex;align-items:center;gap:6px}
+.tgal__dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.8);transition:width .45s var(--ease),background .3s}.tgal__dots i.is-on{width:26px;background:var(--orange)}
+.tgal__all{position:absolute;right:14px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 14px 0 12px;border-radius:999px;background:#fff;color:var(--navy);font-family:Inter,system-ui,sans-serif;font-size:12.5px;font-weight:700;box-shadow:0 8px 22px -8px rgba(3,4,31,.6);transition:transform .25s var(--ease)}
+.tgal__all:hover{transform:translateY(-2px)}.tgal__all .i{width:16px;height:16px;color:var(--orange)}
+.tgal__all-w{display:none}.tgal__all-n{font-variant-numeric:tabular-nums}
+.tgal__nav{display:none;position:absolute;top:50%;z-index:2;width:46px;height:46px;margin-top:-23px;border-radius:50%;place-items:center;background:rgba(255,255,255,.92);color:var(--navy);box-shadow:0 8px 22px -8px rgba(3,4,31,.6);transition:transform .25s var(--ease),background .2s}
+.tgal__nav:hover{background:#fff;transform:scale(1.08)}.tgal__nav .i{width:20px;height:20px}.tgal__nav--p{left:16px}.tgal__nav--n{right:16px}
+
+/* ---------- the two columns: text left, the booking card right (it follows the page). One column under 1000px ---------- */
+.tgrid{display:grid;grid-template-columns:minmax(0,1fr)}
+.tlead{padding-top:22px}
+.tcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:16px;font-family:Inter,system-ui,sans-serif;font-size:12.5px;font-weight:500;color:var(--soft)}
+.tcrumb a:hover{color:#C24400}.tcrumb .i{width:13px;height:13px;color:var(--mute)}.tcrumb b{font-weight:600;color:var(--navy)}
+.th1{margin:14px 0 16px;font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--navy);text-wrap:balance}
+.tmeta{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.trate{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 15px 0 12px;border-radius:999px;background:#fff;border:1px solid var(--line);font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;color:var(--soft);white-space:nowrap;transition:border-color .2s}
+.trate:hover{border-color:var(--navy)}.trate b{color:var(--navy);font-weight:700}.trate__g{width:17px;height:17px}.trate .stars{vertical-align:0}
+.trip--inline{position:static;width:40px;height:40px;border:1px solid var(--line);box-shadow:none}
+.tshare{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 15px 0 13px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;color:var(--navy);transition:border-color .2s}
+.tshare:hover{border-color:var(--navy)}.tshare .i{width:15px;height:15px;color:var(--orange)}
+.tbuyrow{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:18px;padding:12px 12px 12px 18px;border-radius:20px;background:#fff;border:1px solid var(--line2);box-shadow:var(--shadow)}
+.tbuyrow .price{white-space:nowrap}.tbuyrow .price b{font-size:27px;line-height:1.1}.tbuyrow .price s{font-size:13.5px}
+.tbuyrow .btn{height:52px;padding:0 22px;border-radius:14px}.tbuyrow .btn .i{width:17px;height:17px}
+.tfacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:20px}
+.tfact{display:flex;align-items:center;gap:12px;min-width:0;padding:13px 14px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.tfact .ic{background:var(--orange-s);border-color:transparent}
+.tfact span{min-width:0}
+.tfact small{display:block;font-family:Inter,system-ui,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6B6B72}
+.tfact b{display:block;margin-top:2px;font-size:15px;line-height:1.25;color:var(--navy)}
+
+/* ---------- the booking card ---------- */
+.tbuy{margin-top:22px;padding:20px;border-radius:26px;background:#fff;border:1px solid var(--line2);box-shadow:0 2px 6px rgba(0,0,0,.06),0 26px 50px -18px rgba(5,7,60,.3);scroll-margin-top:86px}
+.tbuy__top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line2)}
+.tbuy__top .price b{font-size:32px;line-height:1.08;letter-spacing:-.03em}.tbuy__top .price s{font-size:14px}
+.tbuy__label{margin:16px 0 8px;font-family:Inter,system-ui,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#6B6B72}
+/* what is selected: the client's swatch #FFF1E8 with an orange line and navy text (as on the booking tabs of the home page) */
+.tbuy .dchip.is-on{background:var(--orange-s);border-color:var(--orange);box-shadow:inset 0 0 0 1px var(--orange)}.tbuy .dchip.is-on b{color:var(--navy)}.tbuy .dchip.is-on small{color:#B23F00}
+.tbuy .dchip:hover{border-color:var(--navy)}
+.tbuy .dchip--pick{cursor:pointer}.tbuy .dchip--pick input{position:absolute;inset:0;width:100%;opacity:0;cursor:pointer}
+.tbuy .dchip b{display:flex;align-items:center;justify-content:center;gap:5px}
+.tbuy__addon{display:flex;align-items:center;gap:10px;margin-top:8px;padding:12px;border:1px solid var(--line);border-radius:12px;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;color:var(--navy);cursor:pointer;transition:background .2s,border-color .2s}
+.tbuy__addon:has(input:checked){background:var(--orange-s);border-color:var(--orange)}
+.tbuy__addon input{flex:none;width:18px;height:18px;accent-color:var(--orange)}.tbuy__addon span{flex:1;min-width:0}.tbuy__addon em{font-style:normal;font-weight:700;color:#C24400;white-space:nowrap}
+.tbuy__pick{display:flex;align-items:flex-start;gap:9px;margin-top:12px;font-family:Inter,system-ui,sans-serif;font-size:12.5px;line-height:1.45;color:#0C6F64}.tbuy__pick .i{flex:none;width:17px;height:17px;margin-top:1px}
+.tbuy__total{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:16px 0 12px;padding-top:14px;border-top:1px solid var(--line2);font-family:Inter,system-ui,sans-serif;font-size:12.5px;color:var(--soft)}
+.tbuy__total b{font-family:Emirates,system-ui,sans-serif;font-size:30px;line-height:1;letter-spacing:-.03em;color:var(--navy);white-space:nowrap}
+.tbuy>.btn{width:100%;height:56px;padding:0 16px;border-radius:14px}.tbuy>.btn+.btn{margin-top:8px}.tbuy>.btn .i{width:18px;height:18px}
+.btn--wa{background:#fff;border:1.5px solid var(--green-d);color:#0C6F64}.btn--wa .i{color:var(--green)}.btn--wa:hover{background:#F1FBF5}
+.tbuy .ticks{flex-direction:column;gap:7px;margin-top:14px;font-size:12.5px}
+
+/* ---------- the parts of the page ---------- */
+.tnav{margin:26px 0 0}
+.tsec{padding-top:clamp(38px,5vw,54px);scroll-margin-top:86px}.tsec--first{padding-top:26px}
+.tsec>.eyebrow{margin-bottom:12px}
+.tsec .h2{font-size:clamp(24px,2.7vw,33px);max-width:none;text-wrap:balance}
+.tsec .lede{max-width:68ch;margin-top:12px;font-size:16px}
+.thl{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-top:20px}
+.thl li{display:flex;align-items:flex-start;gap:10px;font-family:Inter,system-ui,sans-serif;font-size:15px;line-height:1.45;color:var(--ink)}
+.thl .i{flex:none;width:19px;height:19px;margin-top:1px;color:#0B7A3B}
+.tourp .eve{margin-top:22px;grid-template-columns:1fr}.tourp .eve__ph{min-height:0;aspect-ratio:16/9}
+/* included and not included: the green box of the home page, and the red box of the client's reference beside it */
+.tinc2{display:grid;gap:14px;margin-top:22px}
+.tourp .inc{margin-top:0}.tourp .inc__list{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.inc--no{background:#FDF0EF;border-color:#F3CCC8}.inc--no .inc__h{color:#8E1B1B}.inc--no .i{background:#D93A2B}
+/* add-ons */
+.tadds{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.tadd{display:flex;flex-direction:column;overflow:hidden;border-radius:20px;background:#fff;border:1px solid var(--line)}
+.tadd__ph{aspect-ratio:16/9;overflow:hidden;background:var(--orange-s)}.tadd__ph img{width:100%;height:100%;object-fit:cover}
+.tadd__body{display:grid;gap:8px;padding:16px 16px 8px}
+.tadd h3{font-size:19px;letter-spacing:-.015em;color:var(--navy)}
+.tadd p{font-family:Inter,system-ui,sans-serif;font-size:13.5px;line-height:1.5;color:var(--soft);margin-bottom:4px}
+.tadd__row{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--line2)}
+.tadd__row>span{flex:1;min-width:0}.tadd__row>span b{display:block;font-size:14.5px;color:var(--navy)}.tadd__row>span small{display:block;font-family:Inter,system-ui,sans-serif;font-size:12px;color:var(--soft)}
+.tadd__row em{font-style:normal;font-size:15px;font-weight:700;color:#C24400;white-space:nowrap}
+.tadd__btn{flex:none;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:76px;height:38px;padding:0 13px;border-radius:999px;border:1.5px solid var(--navy);font-family:Inter,system-ui,sans-serif;font-size:12.5px;font-weight:700;color:var(--navy);transition:background .2s,color .2s,border-color .2s}
+.tadd__btn .i{width:14px;height:14px;stroke-width:2.6}
+.tadd__btn:hover{background:var(--navy);color:#fff}
+.tadd__btn.is-on,.tadd__btn.is-on:hover{background:#0B7A3B;border-color:#0B7A3B;color:#fff}
+.tadd__btn--wa{border-color:var(--green-d);color:#0C6F64}.tadd__btn--wa .i{width:16px;height:16px;color:var(--green);stroke-width:0}.tadd__btn--wa:hover{background:#F1FBF5;color:#0C6F64}
+/* good to know */
+.tknow{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.tknow>li{padding:18px 18px 20px;border-radius:20px;background:#fff;border:1px solid var(--line)}
+.tknow .ic{background:var(--orange-s);border-color:transparent}
+.tknow h3{margin:12px 0 10px;font-size:17.5px;letter-spacing:-.01em;color:var(--navy)}
+.tknow ul{display:grid;gap:8px;font-family:Inter,system-ui,sans-serif;font-size:13.5px;line-height:1.48;color:var(--soft)}
+.tknow ul li{position:relative;padding-left:15px}.tknow ul li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--orange)}
+/* questions and the folded guide */
+.tfaq{margin-top:22px}.tfaq details{background:#fff}.tfaq details[open]{background:var(--orange-s)}
+.tfaq summary{font-size:16.5px;padding:18px 0}.tfaq details p{padding-right:24px}
+.tfaq__more{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px;font-family:Inter,system-ui,sans-serif;font-size:14px;color:var(--soft)}
+.tguide{background:#fff}.tguide[open]{background:#fff;border-color:var(--line)}
+.tguide summary{font-size:16.5px;padding:18px 0}
+.tguide__in{padding:0 0 22px;font-family:Inter,system-ui,sans-serif;font-size:14.5px;line-height:1.62;color:var(--soft)}
+.tguide__in h3{margin:16px 0 8px;font-family:Emirates,system-ui,sans-serif;font-size:17px;letter-spacing:-.01em;color:var(--navy)}.tguide__in h3:first-child{margin-top:0}
+.tguide__in p{padding:0;font-size:14.5px}
+.tguide__in ul{display:grid;gap:6px}.tguide__in ul li{position:relative;padding-left:15px}.tguide__in ul li::before{content:"";position:absolute;left:0;top:.66em;width:5px;height:5px;border-radius:50%;background:var(--orange)}
+.tbody{padding-bottom:clamp(52px,7vw,84px)}
+
+/* ---------- a picture, large ---------- */
+.tlb{position:fixed;inset:0;z-index:200;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:rgba(3,4,31,.96);color:#fff;opacity:0;transition:opacity .25s}
+.tlb.is-on{opacity:1}.tlb[hidden]{display:none}
+.tlb__bar{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;font-family:Inter,system-ui,sans-serif;font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.tlb__bar button,.tlb__nav{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;color:#fff;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);transition:background .2s}
+.tlb__bar button:hover,.tlb__nav:hover{background:rgba(255,255,255,.26)}.tlb__bar .i,.tlb__nav .i{width:20px;height:20px}
+.tlb__stage{position:relative;display:grid;place-items:center;min-height:0;padding:0 12px;touch-action:pan-y}
+.tlb__stage img{max-width:100%;max-height:calc(100svh - 170px);object-fit:contain;border-radius:16px;user-select:none;-webkit-user-drag:none}
+.tlb__nav{position:absolute;top:50%;transform:translateY(-50%)}.tlb__nav--p{left:16px}.tlb__nav--n{right:16px}
+.tlb__cap{padding:14px 18px 24px;text-align:center;font-family:Inter,system-ui,sans-serif;font-size:14px;color:#E3E5F6}
+body.lb-open .sticky{display:none}
+
+/* ---------- wide screens: two columns ---------- */
+@media (min-width:1000px){
+  .tgrid{grid-template-columns:minmax(0,1fr) 392px;column-gap:clamp(32px,4vw,56px);padding-top:92px}
+  .tgalw{grid-column:1;grid-row:1;margin-inline:0;padding:0}
+  .tgal::before{display:none}
+  .tgal__track{height:auto;min-height:0;aspect-ratio:16/10;max-height:min(520px,calc(100svh - 200px))}
+  .tgal__nav{display:grid}
+  .tgal__all{height:42px;padding:0 16px 0 13px;font-size:13px}.tgal__all-w{display:inline}.tgal__all-n{display:none}
+  .tlead{grid-column:1;grid-row:2;padding-top:26px}
+  .tbuy{grid-column:2;grid-row:1/span 3;align-self:start;position:sticky;top:92px;margin-top:0;margin-bottom:clamp(52px,7vw,84px)}
+  .tbody{grid-column:1;grid-row:3}
+  .tbuyrow{display:none}
+}
+@media (min-width:1240px){.tourp .eve{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}.tourp .eve__ph{aspect-ratio:auto;min-height:400px}}
+/* a low wide screen: the card must fit under the header */
+@media (min-width:1000px) and (max-height:820px){.tbuy{padding:16px 18px}.tbuy__label{margin:12px 0 6px}.tbuy__top{padding-bottom:10px}.tbuy__top .price b{font-size:28px}.tbuy .ticks{display:none}.tbuy>.btn{height:50px}.tbuy__total{margin:12px 0 10px;padding-top:12px}.tbuy__pick{margin-top:10px}}
+
+/* ---------- tablets and phones: the pictures become a strip to swipe ---------- */
+@media (max-width:700px){
+  .tgalw{margin-inline:-10px;padding:8px 0 0}.tgal{border-radius:28px}
+  .tlead{padding-top:18px}.tcrumb{margin-bottom:12px;font-size:12px}
+  /* the name stands right under it: the path ends at the group on a phone */
+  .tcrumb b,.tcrumb .i:last-of-type{display:none}
+  .th1{margin:12px 0 14px;font-size:clamp(28px,8.4vw,38px)}
+  .tmeta{gap:8px}.trate{height:38px;padding:0 12px 0 10px;font-size:12.5px}.trip--inline{width:38px;height:38px}.tshare{width:38px;height:38px;padding:0;justify-content:center}.tshare span{display:none}
+  .tbuyrow{margin-top:16px;padding:10px 10px 10px 16px}.tbuyrow .btn{height:50px;padding:0 18px}
+  .tfacts{grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+  .tfact{padding:11px 10px;gap:9px;border-radius:14px}.tfact .ic{width:34px;height:34px}.tfact b{font-size:13.5px}.tfact small{font-size:10px;letter-spacing:.1em}
+  .tbuy{padding:16px;border-radius:22px;margin-top:18px}
+  .tnav{margin-top:22px;margin-inline:-20px;padding-inline:20px}
+  .thl{grid-template-columns:1fr;gap:10px}.thl li{font-size:14.5px}
+  .tadds{grid-template-columns:1fr}
+  .tfaq details p{padding-right:0}
+  .tlb__nav{width:40px;height:40px}.tlb__nav--p{left:8px}.tlb__nav--n{right:8px}
+}
+@media (max-width:380px){.tfact .ic{display:none}.tfact{padding:11px 12px}.tbuyrow{gap:10px;padding-left:14px}.tbuyrow .price b{font-size:23px}.tbuyrow .btn{padding:0 15px}.tbuyrow .btn .i{display:none}.tbuy__addon{font-size:12.5px;gap:8px}}
+@media (max-width:339px){.tshare{display:none}}
+/* short phones: less picture, so the price and Book stay in the first screen */
+@media (max-width:999px) and (max-height:620px){.tgal__track{height:44svh;min-height:230px}.tlead{padding-top:14px}.th1{margin:10px 0 12px}.tbuyrow{margin-top:12px}}
